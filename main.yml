@@ -1,0 +1,17 @@
+---
+- name: Configure WSL
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  become: false
+
+  roles:
+    - role: ssh
+    - role: docker
+    - role: brew
+    - role: github
+    - role: vscode
+    - role: shell
+    - role: msg
+      tags:
+        - msg

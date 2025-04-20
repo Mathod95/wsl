@@ -67,6 +67,26 @@ The roles are primarily declarative, created according to my personal needs, but
 
 ### Prerequisites
 
+#### Debian docker image
+
+#### Script
+```bash
+cd
+sudo apt update
+sudo apt install locales -y
+sudo localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+sudo apt install dialog -y
+sudo apt install build-essential procps curl file git -y
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo >> /home/mathod/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/mathod/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+brew install gcc
+brew install ansible
+git clone https://github.com/Mathod95/wsl
+cd wsl
+ansible-playbook main.yml --ask-vault-pass
+```
 ### Usage
 
 ## Useful links
