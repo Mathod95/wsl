@@ -85,7 +85,7 @@ brew install gcc
 brew install ansible
 git clone https://github.com/Mathod95/wsl
 cd wsl
-ansible-playbook main.yml --ask-vault-pass
+#ansible-playbook main.yml #--ask-vault-pass
 ```
 ### Usage
 
