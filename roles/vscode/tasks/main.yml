@@ -1,2 +1,3 @@
 ---
 # tasks file for vscode
+- import_tasks: install.yml
