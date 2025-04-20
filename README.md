@@ -67,7 +67,18 @@ The roles are primarily declarative, created according to my personal needs, but
 
 ### Prerequisites
 
-#### Debian docker image
+1) Using WSL Manager create a new distro using those parameters:
+  - Name: <debian>
+  - Distroname: <dockerhub:debian:bookworm-slim>
+2) Before the first boot enter in the settings of your WSL and configure:
+  - Start directory path: /home/mathod
+  - Start user: mathod
+3) Under those settings click on boot and check Systemd to enable it
+```bash
+echo -e "\n[boot]\nsystemd=true" | sudo tee -a /etc/wsl.conf > /dev/null
+sudo apt install vim systemd
+```
+reboot wsl
 
 #### Script
 ```bash
@@ -88,5 +99,22 @@ cd wsl
 #ansible-playbook main.yml #--ask-vault-pass
 ```
 ### Usage
+```yaml
+---
+- name: Configure WSL
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  become: false
 
-## Useful links
+  roles:
+    - role: ssh
+    - role: docker
+    - role: brew
+    - role: github
+    - role: vscode
+    - role: shell
+    - role: msg
+      tags:
+        - msg
+```
