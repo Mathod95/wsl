@@ -181,3 +181,43 @@
 
 ## Shortcuts
 
+## Usefull link
+
+- zsh
+  - general:
+    - https://github.com/rothgar/mastering-zsh/tree/master?tab=readme-ov-file (Tips)
+    - https://markmcb.com/cli/tmux-zsh-fzf-ui/#default-history-search (Tips)
+    - https://github.com/unixorn/awesome-zsh-plugins (Awesome)
+    - https://github.com/junegunn/fzf (Shortcuts)
+    - https://github.com/zplug/installer/blob/master/installer.zsh (zsh installer)
+  - plugins:
+    - zplug:
+      - https://github.com/zplug/zplug
+    - zsh-autocomplete:
+      - https://github.com/marlonrichert/zsh-autocomplete (Install, configuration & shortcuts)
+    - zsh-abbr:
+      - https://github.com/olets/zsh-abbr
+    - zsh-pure:
+      - https://github.com/sindresorhus/pure
+    - fzf-tab:
+      - https://github.com/Aloxaf/fzf-tab
+    - Kubectl-fzf
+      - https://github.com/bonnefoa/kubectl-fzf
+    - alias-finder:
+      - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/alias-finder
+    - pure:
+      - https://github.com/sindresorhus/pure
+
+- zellij
+  - general:
+    - https://zellij.dev/documentation/integration (Intégration zellij into zsh)
+  - plugins:
+    - https://github.com/dj95/zjstatus
+    - https://haseebmajid.dev/posts/2024-07-26-how-i-configured-zellij-status-bar/#status-bar (Tips)
+    - https://github.com/romkatv/powerlevel10k
+  - themes:
+    - https://github.com/dj95/zjstatus/discussions/44
+    - https://zellij.dev/documentation/themes
+
+- fzf
+  - https://kaliex.co/supercharge-your-zsh-terminal-with-fzf-a-simple-guide/ (Tips)
