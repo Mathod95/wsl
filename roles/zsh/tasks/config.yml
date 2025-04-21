@@ -34,7 +34,7 @@
 - name: Changer le shell par défaut avec chsh
   ansible.builtin.shell: chsh -s /home/linuxbrew/.linuxbrew/bin/zsh {{ ansible_env.USER }}
   become: true
-  when: ansible_facts['ansible_user_shell'] != '/home/linuxbrew/.linuxbrew/bin/zsh'
+  changed_when: ansible_facts['ansible_user_shell'] != '/home/linuxbrew/.linuxbrew/bin/zsh'
 
 - name: Copy .zshrc
   ansible.builtin.copy:
