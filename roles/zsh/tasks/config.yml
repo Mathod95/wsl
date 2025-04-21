@@ -27,9 +27,19 @@
     create: yes
   become: true
 
-- name: Changer le shell par défaut avec chsh
-  ansible.builtin.shell: chsh -s /home/linuxbrew/.linuxbrew/bin/zsh {{ ansible_env.USER }}
+#- name: Changer le shell par défaut avec chsh
+#  ansible.builtin.shell: chsh -s /home/linuxbrew/.linuxbrew/bin/zsh {{ ansible_env.USER }}
+#  become: true
+
+- name: Change default shell to zsh if it's not already set
+  ansible.builtin.shell: |
+    current_shell=$(getent passwd {{ ansible_env.USER }} | cut -d: -f7)
+    if [ "$current_shell" != "/home/linuxbrew/.linuxbrew/bin/zsh" ]; then
+      chsh -s /home/linuxbrew/.linuxbrew/bin/zsh {{ ansible_env.USER }}
+    fi
   become: true
+  register: result
+  changed_when: result.rc == 0  # Only mark as changed if the shell was actually updated
 
 - name: Copy .zshrc
   ansible.builtin.copy:
