@@ -57,7 +57,7 @@
   changed_when: false
   ignore_errors: yes
   tags:
-    - list_versions
+    - versions
 
 - name: Parse Homebrew versions for each tool
   set_fact:
@@ -79,7 +79,7 @@
     zellij_version: "{{ brew_versions.stdout_lines | select('search', '^zellij ') | first | regex_replace('zellij\\s+', '') | default('❌ non installé') }}"
     kubectl_version: "{{ brew_versions.stdout_lines | select('search', '^kubernetes-cli ') | first | regex_replace('kubernetes-cli\\s+', '') | default('❌ non installé') }}"
   tags:
-    - list_versions
+    - versions
 
 - name: Set version message as a multi-line string
   set_fact:
@@ -103,9 +103,11 @@
       🐍  Vim     : {{ vim_version }}
       🧩  Zellij  : {{ zellij_version }}
       --------------------------------------------
+  tags:
+    - versions
 
 - name: Print all versions cleanly
   ansible.builtin.debug:
     msg: "{{ versions_text.splitlines() }}"
   tags:
-    - list_versions
+    - versions
