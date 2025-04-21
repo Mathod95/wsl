@@ -17,36 +17,36 @@
     name: "{{ item }}"
     state: present
   loop:
-    #- ansible
-    #- kubectl
-    #- argocd
-    #- docker
-    #- keychain
-    #- curl
-    #- wget
-    #- git
-    #- vim
-    #- systemd
-    #- bat
-    #- kube-score
-    #- fd
-    #- fzf
-    #- btop
-    #- helm
-    #- kind
-    #- krew
-    #- kubectx
-    #- zellij
-    #- crossplane
-    #- awscli
-    #- zsh
-    #- kubecolor
-    #- cilium-cli
-    #- kustomize
-    #- kyverno
-    #- velero
-    #- eza
-    #- zplug
+    - ansible
+    - kubectl
+    - argocd
+    - docker
+    - keychain
+    - curl
+    - wget
+    - git
+    - vim
+    - systemd
+    - bat
+    - kube-score
+    - fd
+    - fzf
+    - btop
+    - helm
+    - kind
+    - krew
+    - kubectx
+    - zellij
+    - crossplane
+    - awscli
+    - zsh
+    - kubecolor
+    - cilium-cli
+    - kustomize
+    - kyverno
+    - velero
+    - eza
+    - zplug
     #- zsh-autosuggestions
     #- zsh-autocomplete
     #- olets/tap/zsh-abbr

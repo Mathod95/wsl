@@ -8,10 +8,7 @@
   roles:
     - role: ssh
     - role: docker
-    - role: brew
+    - role: brewPackages
     - role: github
     - role: vscode
     - role: shell
-    - role: msg
-      tags:
-        - msg
