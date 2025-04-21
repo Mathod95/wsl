@@ -1,7 +1,7 @@
 # PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
-#source $ZPLUG_HOME/init.zsh
+source $ZPLUG_HOME/init.zsh
 export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
 
 # ALIASES
