@@ -39,7 +39,7 @@
     fi
   become: true
   register: result
-  changed_when: result.rc == 0  # Only mark as changed if the shell was actually updated
+  changed_when: "'chsh' in result.stdout"  # Only mark as changed if the output contains "chsh"
 
 - name: Copy .zshrc
   ansible.builtin.copy:
