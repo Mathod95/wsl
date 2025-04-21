@@ -1,4 +1,25 @@
 ---
+- name: Disable Homebrew analytics
+  ansible.builtin.command:
+    cmd: /home/linuxbrew/.linuxbrew/bin/brew analytics off
+  register: brew_analytics_result
+  changed_when: false
+
+# Install from zplug ?
+#- name: Tap olets/tap
+#  community.general.homebrew_tap:
+#    name: olets/tap
+#    state: present
+
+# Check package to install !
+- name: Install {{ item }} via Homebrew
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - zsh
+    - zplug
+
 - name: Ajouter zsh Shell à la liste des shells valides
   ansible.builtin.lineinfile:
     path: /etc/shells
