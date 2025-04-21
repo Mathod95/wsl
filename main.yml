@@ -12,3 +12,6 @@
     - role: github
     - role: vscode
     - role: zsh
+      tags:
+        - zsh
+    
