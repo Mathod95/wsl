@@ -9,6 +9,7 @@ eval "$(zellij setup --generate-auto-start zsh)"
 
 # completion
 fpath+=/home/linuxbrew/.linuxbrew/share/zsh-abbr
+fpath+=($(brew --prefix)/share/zsh/functions)
 
 # zplug
 zplug "zsh-users/zsh-autosuggestions"
