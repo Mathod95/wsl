@@ -17,6 +17,17 @@ zplug "olets/zsh-abbr"
 zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug load
 
+# zplug load
+if ! zplug check --verbose; then
+    printf "Installing plugins...\n"
+    zplug install
+fi
+zplug load
+
+# zsh
+#setopt CORRECT             # corriger les fautes de frappe sur les commandes
+#setopt AUTO_CD             # cd juste avec le nom du dossier
+
 # history
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -46,7 +57,9 @@ alias ls="eza --icons"
 alias la="eza -la --icons"
 alias tree="eza -T"
 alias kctx="kubectx"
+alias cat="bat"
 alias kns="kubens"
+alias gl="git pull"
 alias ..="cd .."
 alias ...="cd ../.."
 alias cls="clear"
