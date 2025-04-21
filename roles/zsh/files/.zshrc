@@ -7,6 +7,8 @@ export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
 # ALIASES
 alias zshrc="vim ~/.zshrc"
 alias szshrc="source ~/.zshrc"
+alias gl="git pull"
+alias apbzsh="ansible-playbook main.yml --tags=zsh"
 
 # ZSH OPTIONS
 setopt CORRECT             # corriger les fautes de frappe sur les commandes
