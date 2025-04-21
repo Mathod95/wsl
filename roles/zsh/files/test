@@ -1,0 +1,101 @@
+# ---------------------------------------------------
+# Basic Options
+# ---------------------------------------------------
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k" # Requires the powerlevel10k theme
+plugins=(git fzf zsh-autosuggestions zsh-syntax-highlighting)
+
+# Load Oh My Zsh
+source $ZSH/oh-my-zsh.sh
+
+# ---------------------------------------------------
+# History Settings
+# ---------------------------------------------------
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+setopt HIST_IGNORE_DUPS       # Ignore duplicate commands
+setopt HIST_IGNORE_SPACE      # Don't save commands that start with a space
+setopt HIST_VERIFY            # Show command before executing from history
+setopt SHARE_HISTORY          # Share command history across sessions
+setopt APPEND_HISTORY         # Don't overwrite history
+setopt INC_APPEND_HISTORY     # Write to history immediately
+
+
+
+#setopt CSH_JUNKIE_HISTORY                  # csh behavior option
+#setopt HIST_ALLOW_CLOBBER                  # related to shell clobber setting
+#setopt HIST_BEEP                           # beep if attempting to access a history entry which isn’t there
+#setopt HIST_EXPIRE_DUPS_FIRST              # trim dupes first when history is full. You should be sure to set the value of HISTSIZE to a larger number than SAVEHIST
+#setopt HIST_FCNTL_LOCK                     # may provide better performance, in particular avoiding history corruption when files are stored on NFS.
+#setopt HIST_FIND_NO_DUPS                   # do not display previously found command
+#setopt HIST_IGNORE_ALL_DUPS                # remove old command if new one is a duplicate
+#setopt HIST_LEX_WORDS                      # related to how white space is saved
+#setopt HIST_NO_FUNCTIONS                   # do not save function commands
+#setopt HIST_NO_STORE                       # do not save history commands
+#setopt HIST_SAVE_NO_DUPS                   # omit older duplicates of newer commands
+#setopt HIST_SUBST_PATTERN                  # use pattern matching for substitutions with history modifiers
+#setopt SHARE_HISTORY                       # INC_APPEND_HISTORY should be turned off if this option is in effect
+
+# ---------------------------------------------------
+# Completion System
+# ---------------------------------------------------
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=**'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*:messages' format '%F{green}%d%f'
+zstyle ':completion:*:warnings' format '%F{red}No matches for:%f %d'
+
+# ---------------------------------------------------
+# fzf (Fuzzy Finder)
+# ---------------------------------------------------
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
+# Optional: fzf preview with bat
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always {} | head -100'"
+
+# ---------------------------------------------------
+# fzf-tab Integration
+# ---------------------------------------------------
+# Requires plugin: https://github.com/Aloxaf/fzf-tab
+zstyle ':fzf-tab:*' fzf-preview 'bat --style=numbers --color=always --line-range :500 {} 2>/dev/null'
+zstyle ':fzf-tab:*' prefix ''
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+# ---------------------------------------------------
+# zsh-autosuggestions
+# ---------------------------------------------------
+# Requires: https://github.com/zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
+
+# ---------------------------------------------------
+# zsh-syntax-highlighting
+# ---------------------------------------------------
+# Must be sourced *last*
+source ${(q-)ZSH}/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ---------------------------------------------------
+# zsh-autocomplete (Optional alternative to autosuggestions)
+# ---------------------------------------------------
+# Comment autosuggestions if using this instead
+# source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# zstyle ':autocomplete:*' menu select
+# zstyle ':autocomplete:*' sort no
+
+# ---------------------------------------------------
+# Aliases (feel free to customize)
+# ---------------------------------------------------
+alias ls='ls --color=auto'
+alias ll='ls -lah'
+alias gs='git status'
+alias ..='cd ..'
+
+# ---------------------------------------------------
+# Powerlevel10k Config (Optional)
+# ---------------------------------------------------
+# If you run `p10k configure`, it'll add a block here
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

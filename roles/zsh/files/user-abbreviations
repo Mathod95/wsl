@@ -1,0 +1,10 @@
+# Docker
+abbr "dk"="docker"
+
+# Kubectl
+abbr "kgno"="kubectl get nodes"
+abbr "kgns"="kubectl get namespaces"
+abbr "kgpons"="kubectl get pods % --namespace %"
+abbr "k"="kubectl"
+abbr "kctx"="kubectx"
+abbr "kns"="kubens"
