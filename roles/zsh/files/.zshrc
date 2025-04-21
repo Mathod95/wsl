@@ -1,6 +1,9 @@
 # path
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-source /home/linuxbrew/.linuxbrew/opt/zplug/init.zsh
+export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
+
+#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+#source /home/linuxbrew/.linuxbrew/opt/zplug/init.zsh
+export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
 eval "$(zellij setup --generate-auto-start zsh)"
 #source /home/linuxbrew/.linuxbrew/share/zsh-abbr/zsh-abbr.zsh
 #source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -10,6 +13,9 @@ eval "$(zellij setup --generate-auto-start zsh)"
 # completion
 fpath+=/home/linuxbrew/.linuxbrew/share/zsh-abbr
 fpath+=($(brew --prefix)/share/zsh/functions)
+fpath+=($(brew --prefix)/bin)
+# === Filtrer les complétions pour ne montrer que les commandes dans le PATH Linux ===
+
 
 # zplug
 zplug "zsh-users/zsh-autosuggestions"
