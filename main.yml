@@ -11,4 +11,4 @@
     - role: brewPackages
     - role: github
     - role: vscode
-    - role: shell
+    - role: zsh
