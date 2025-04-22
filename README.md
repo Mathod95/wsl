@@ -82,7 +82,6 @@ reboot wsl
 
 #### Script
 ```bash
-cd
 sudo apt update
 sudo apt install locales -y
 sudo localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
@@ -94,7 +93,7 @@ brew install gcc
 brew install ansible
 git clone https://github.com/Mathod95/wsl
 cd wsl
-#ansible-playbook main.yml #--ask-vault-pass
+ansible-playbook main.yml --tags=zsh
 ```
 ### Usage
 ```yaml
@@ -108,11 +107,10 @@ cd wsl
   roles:
     - role: ssh
     - role: docker
-    - role: brew
+    - role: brewPackages
     - role: github
     - role: vscode
-    - role: shell
-    - role: msg
+    - role: zsh
       tags:
-        - msg
+        - zsh
 ```
