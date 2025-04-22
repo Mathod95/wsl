@@ -18,6 +18,7 @@
     - zsh
     - zplug
     - olets/tap/zsh-abbr
+    - vim
 
 - name: Ajouter zsh Shell à la liste des shells valides
   ansible.builtin.lineinfile:
@@ -48,17 +49,17 @@
 #    dest: "{{ ansible_env.HOME }}/.histfile"
 #    mode: '0600'
 #
-#- name: Ensure ~/config/zsh-abbr directory exists with correct permissions
-#  ansible.builtin.file:
-#    path: "{{ ansible_env.HOME }}/.config/zsh-abbr"
-#    state: directory
-#    mode: '0755'
-#
-#- name: Copy user-abbreviations
-#  ansible.builtin.copy:
-#    src: user-abbreviations
-#    dest: "{{ ansible_env.HOME }}/.config/zsh-abbr/user-abbreviations"
-#    mode: '0600'
+- name: Ensure ~/config/zsh-abbr directory exists with correct permissions
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/zsh-abbr"
+    state: directory
+    mode: '0755'
+
+- name: Copy user-abbreviations
+  ansible.builtin.copy:
+    src: user-abbreviations
+    dest: "{{ ansible_env.HOME }}/.config/zsh-abbr/user-abbreviations"
+    mode: '0600'
 #
 #- name: Ensure ~/config/zellij directory exists with correct permissions
 #  ansible.builtin.file:
