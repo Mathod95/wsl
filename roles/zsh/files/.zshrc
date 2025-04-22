@@ -11,7 +11,8 @@ bindkey "^[[F" end-of-line       # End key: move to end of line
 # ALIASES
 alias ..="cd .."
 alias ...="cd ../.."
-alias apbzsh="ansible-playbook main.yml --tags=zsh"
+alias "apbm"="ansible-playbook main.yml"
+alias "apbmv"="ansible-playbook main.yml --tags=versions"
 alias cat="bat"
 alias cls="clear"
 alias gl="git pull"

@@ -1,5 +1,6 @@
 # Ansible
-abbr "apbzsh"="ansible-playbook main.yml --tags=zsh"
+abbr "apbm"="ansible-playbook main.yml"
+abbr "apbmv"="ansible-playbook main.yml --tags=versions"
 
 # Docker
 abbr "dk"="docker"
