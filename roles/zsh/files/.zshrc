@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -22,10 +29,11 @@ alias kgno="kubectl get nodes"
 alias kns="kubens"
 alias kubectl="kubecolor"
 alias la="eza -la --icons"
-alias ls="eza --icons"
+alias ls="eza -a --icons"
 alias szshrc="source ~/.zshrc"
 alias tree="eza -T"
 alias zshrc="vim ~/.zshrc"
+compdef kubecolor=kubectl
 
 # ZSH OPTIONS
 setopt CORRECT # corriger les fautes de frappe sur les commandes
@@ -36,6 +44,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "marlonrichert/zsh-autocomplete"
 zplug "olets/zsh-abbr"
 zplug "zdharma-continuum/fast-syntax-highlighting"
+zplug "romkatv/powerlevel10k", as:theme, depth:1
 
 if ! zplug check; then
     echo "Missing plugins detected. Installing..."
@@ -50,3 +59,6 @@ ABBR_EXPAND_PUSH_ABBREVIATION_TO_HISTORY=1
 ABBR_SET_EXPANSION_CURSOR=1
 ABBR_EXPANSION_CURSOR_MARKER=%
 ABBR_SET_LINE_CURSOR=1
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
