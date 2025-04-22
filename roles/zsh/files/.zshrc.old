@@ -1,6 +1,5 @@
 # path
 export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
-
 #eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 #source /home/linuxbrew/.linuxbrew/opt/zplug/init.zsh
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
@@ -15,25 +14,6 @@ fpath+=/home/linuxbrew/.linuxbrew/share/zsh-abbr
 fpath+=($(brew --prefix)/share/zsh/functions)
 fpath+=($(brew --prefix)/bin)
 # === Filtrer les complétions pour ne montrer que les commandes dans le PATH Linux ===
-
-
-# zplug
-zplug "zsh-users/zsh-autosuggestions"
-zplug "marlonrichert/zsh-autocomplete"
-zplug "olets/zsh-abbr"
-zplug "zdharma-continuum/fast-syntax-highlighting"
-zplug load
-
-# zplug load
-if ! zplug check --verbose; then
-    printf "Installing plugins...\n"
-    zplug install
-fi
-zplug load
-
-# zsh
-#setopt CORRECT             # corriger les fautes de frappe sur les commandes
-#setopt AUTO_CD             # cd juste avec le nom du dossier
 
 # history
 HISTFILE=~/.histfile
@@ -50,28 +30,6 @@ setopt HIST_REDUCE_BLANKS                  # strip superfluous blanks
 setopt HIST_IGNORE_DUPS                    # do not save duplicate of prior command
 setopt HIST_VERIFY                         # expand line without executing it
 
-# bind
-bindkey "^[[3~" delete-char        # rebind del key from "^[[3~" to "delete-char"
-bindkey "^[[H" beginning-of-line   # Home key: move to beginning of line
-bindkey "^[[F" end-of-line         # End key: move to end of line
-#bindkey "^I" autosuggest-accept
-
-# aliases
-alias zshrc="vim ~/.zshrc"
-alias szshrc="source ~/.zshrc"
-alias kubectl="kubecolor"
-alias ls="eza --icons"
-alias la="eza -la --icons"
-alias tree="eza -T"
-alias kctx="kubectx"
-alias cat="bat"
-alias kns="kubens"
-alias gl="git pull"
-alias ..="cd .."
-alias ...="cd ../.."
-alias cls="clear"
-alias kgns="kubectl get namespaces"
-alias kgno="kubectl get nodes"
 compdef kubecolor=kubectl
 
 # abbr https://zsh-abbr.olets.dev/configuration-variables.html

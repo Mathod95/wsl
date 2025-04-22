@@ -1,5 +1,11 @@
+# Ansible
+abbr "apbzsh"="ansible-playbook main.yml --tags=zsh"
+
 # Docker
 abbr "dk"="docker"
+
+# Git
+abbr "gl"="git pull"
 
 # Kubectl
 abbr "kgno"="kubectl get nodes"
@@ -8,5 +14,3 @@ abbr "kgpons"="kubectl get pods % --namespace %"
 abbr "k"="kubectl"
 abbr "kctx"="kubectx"
 abbr "kns"="kubens"
-abbr "gl"="git pull"
-abbr "apbzsh"="ansible-playbook main.yml --tags=zsh"

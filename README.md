@@ -31,7 +31,7 @@ The roles are primarily declarative, created according to my personal needs, but
 | [argocd](https://github.com/argoproj/argo-cd)                           |             | [brew](https://formulae.brew.sh/formula/argocd)              | TODO               |
 | [curl](https://github.com/curl/curl)                                    |             | [brew](https://formulae.brew.sh/formula/curl)                | TODO               |
 | git                                                                     |             | bash                                                         | TODO               |
-| [vim](https://github.com/vim/vim)                                       |             | [brew](https://formulae.brew.sh/formula/vim)                 | TODO               |
+| [vim](https://github.com/vim/vim)                                       |             | [brew](https://formulae.brew.sh/formula/vim)                 | :white_check_mark: |
 | [systemd](https://github.com/systemd/systemd)                           |             | [brew](https://formulae.brew.sh/formula/systemd)             | TODO               |
 | [bat](https://github.com/sharkdp/bat)                                   |             | [brew](https://formulae.brew.sh/formula/bat)                 | TODO               |
 | [fd](https://github.com/sharkdp/fd)                                     |             | [brew](https://formulae.brew.sh/formula/fd)                  | TODO               |
@@ -56,7 +56,7 @@ The roles are primarily declarative, created according to my personal needs, but
 | [kube-score](https://github.com/zegl/kube-score)                        |             | [brew](https://formulae.brew.sh/formula/kube-score)          | TODO               |
 | [zsh](https://github.com/zsh-users/zsh)                                 |             | [brew](https://formulae.brew.sh/formula/zsh)                 | :white_check_mark: |
 | [zplug](https://github.com/zplug/zplug/)                                |             | [brew](https://formulae.brew.sh/formula/zplug)               | :white_check_mark: |
-| [zsh-abbr](https://github.com/olets/zsh-abbr)                           |             | [brew](NO_FORMULA)                                           | :white_check_mark: |
+| [zsh-abbr](https://github.com/olets/zsh-abbr)                           |             | brew                                                         | :white_check_mark: |
 | [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) |             | [brew](https://formulae.brew.sh/formula/zsh-autosuggestions) | TODO               |
 | [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)   |             | [brew](https://formulae.brew.sh/formula/zsh-autocomplete)    | TODO               |
 | [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) |             | [brew](https://formulae.brew.sh/formula/zsh-f-sy-h)          | TODO               |

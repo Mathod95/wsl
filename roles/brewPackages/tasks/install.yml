@@ -5,13 +5,11 @@
   register: brew_analytics_result
   changed_when: false
 
-# Install from zplug ?
-#- name: Tap olets/tap
-#  community.general.homebrew_tap:
-#    name: olets/tap
-#    state: present
+- name: Tap olets/tap
+  community.general.homebrew_tap:
+    name: olets/tap
+    state: present
 
-# Check package to install !
 - name: Install {{ item }} via Homebrew
   community.general.homebrew:
     name: "{{ item }}"
@@ -39,17 +37,15 @@
     - zellij
     - crossplane
     - awscli
-    - zsh
     - kubecolor
     - cilium-cli
     - kustomize
     - kyverno
     - velero
     - eza
+    - zsh
     - zplug
-    #- zsh-autosuggestions
-    #- zsh-autocomplete
-    #- olets/tap/zsh-abbr
+    - olets/tap/zsh-abbr
 
 - name: Get list of installed Homebrew packages with versions
   ansible.builtin.command: brew list --versions

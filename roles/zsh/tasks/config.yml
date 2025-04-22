@@ -5,21 +5,6 @@
   register: brew_analytics_result
   changed_when: false
 
-- name: Tap olets/tap
-  community.general.homebrew_tap:
-    name: olets/tap
-    state: present
-
-- name: Install {{ item }} via Homebrew
-  community.general.homebrew:
-    name: "{{ item }}"
-    state: present
-  loop:
-    - zsh
-    - zplug
-    - olets/tap/zsh-abbr
-    - vim
-
 - name: Ajouter zsh Shell à la liste des shells valides
   ansible.builtin.lineinfile:
     path: /etc/shells
@@ -48,7 +33,7 @@
 #    src: .histfile
 #    dest: "{{ ansible_env.HOME }}/.histfile"
 #    mode: '0600'
-#
+
 - name: Ensure ~/config/zsh-abbr directory exists with correct permissions
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config/zsh-abbr"
@@ -60,13 +45,13 @@
     src: user-abbreviations
     dest: "{{ ansible_env.HOME }}/.config/zsh-abbr/user-abbreviations"
     mode: '0600'
-#
+
 #- name: Ensure ~/config/zellij directory exists with correct permissions
 #  ansible.builtin.file:
 #    path: "{{ ansible_env.HOME }}/.config/zellij"
 #    state: directory
 #    mode: '0755'
-#
+
 #- name: Copy config.kdl
 #  ansible.builtin.copy:
 #    src: config.kdl
