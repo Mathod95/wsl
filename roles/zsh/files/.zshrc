@@ -24,7 +24,7 @@ fi
 
 zplug "zsh-users/zsh-autosuggestions"
 zplug "marlonrichert/zsh-autocomplete"
-zplug "olets/zsh-abbr"
+#zplug "olets/zsh-abbr", from:prezto
 zplug "zdharma-continuum/fast-syntax-highlighting"
 
 zplug load
