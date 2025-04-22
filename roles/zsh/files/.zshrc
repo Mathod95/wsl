@@ -1,4 +1,3 @@
-# PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -15,16 +14,15 @@ setopt CORRECT             # corriger les fautes de frappe sur les commandes
 setopt AUTO_CD             # cd juste avec le nom du dossier
 
 # ZPLUG
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
 zplug "zsh-users/zsh-autosuggestions"
 zplug "marlonrichert/zsh-autocomplete"
 zplug "olets/zsh-abbr"
 zplug "zdharma-continuum/fast-syntax-highlighting"
+
+if ! zplug check; then
+    echo "Missing plugins detected. Installing..."
+    zplug install
+    echo "Plugins installed."
+fi
 
 zplug load
