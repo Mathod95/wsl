@@ -15,11 +15,9 @@ setopt CORRECT             # corriger les fautes de frappe sur les commandes
 setopt AUTO_CD             # cd juste avec le nom du dossier
 
 # ZPLUG
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+if ! zplug check; then
+  echo "[zplug] Installing plugins..."
+  zplug install
 fi
 
 zplug "zsh-users/zsh-autosuggestions"

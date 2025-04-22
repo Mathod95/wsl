@@ -10,7 +10,6 @@
     name: olets/tap
     state: present
 
-# Check package to install !
 - name: Install {{ item }} via Homebrew
   community.general.homebrew:
     name: "{{ item }}"
@@ -27,10 +26,6 @@
     create: yes
   become: true
 
-#- name: Changer le shell par défaut avec chsh
-#  ansible.builtin.shell: chsh -s /home/linuxbrew/.linuxbrew/bin/zsh {{ ansible_env.USER }}
-#  become: true
-
 - name: Change default shell to zsh if it's not already set
   ansible.builtin.shell: |
     current_shell=$(getent passwd {{ ansible_env.USER }} | cut -d: -f7)
@@ -39,7 +34,7 @@
     fi
   become: true
   register: result
-  changed_when: "'chsh' in result.stdout"  # Only mark as changed if the output contains "chsh"
+  changed_when: "'chsh' in result.stdout"
 
 - name: Copy .zshrc
   ansible.builtin.copy:
