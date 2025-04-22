@@ -94,7 +94,7 @@ brew install gcc
 brew install ansible
 git clone https://github.com/Mathod95/wsl
 cd wsl
-ansible-playbook main.yml --tags=zsh
+ansible-playbook main.yml
 ```
 ### Usage
 ```yaml
@@ -112,6 +112,4 @@ ansible-playbook main.yml --tags=zsh
     - role: github
     - role: vscode
     - role: zsh
-      tags:
-        - zsh
 ```
