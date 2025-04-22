@@ -54,7 +54,7 @@ The roles are primarily declarative, created according to my personal needs, but
 | [velero](https://github.com/vmware-tanzu/velero)                        |             | [brew](https://formulae.brew.sh/formula/velero)              | TODO   |
 | [zoxide](https://github.com/ajeetdsouza/zoxide)                         |             | [brew](https://formulae.brew.sh/formula/zoxide)              | TODO   |
 | [kube-score](https://github.com/zegl/kube-score)                        |             | [brew](https://formulae.brew.sh/formula/kube-score)          | TODO   |
-| [zplug](https://github.com/zplug/zplug/)                                |             | [brew](https://formulae.brew.sh/formula/zplug)               | TODO   |
+| [zplug](https://github.com/zplug/zplug/)                                |             | [brew](https://formulae.brew.sh/formula/zplug)               | :white_check_mark:   |
 | [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) |             | [brew](https://formulae.brew.sh/formula/zsh-autosuggestions) | TODO   |
 | [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)   |             | [brew](https://formulae.brew.sh/formula/zsh-autocomplete)    | TODO   |
 | [zsh-abbr](https://github.com/olets/zsh-abbr)                           |             | [brew](https://formulae.brew.sh/formula/zsh-autocomplete)    | TODO   |
