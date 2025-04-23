@@ -5,13 +5,14 @@
 #  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 #fi
 
+# PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
 export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
 eval "$(zellij setup --generate-auto-start zsh)"
 
-# bind
+# BIND
 bindkey "^[[3~" delete-char      # rebind del key from "^[[3~" to "delete-char"
 bindkey "^[[H" beginning-of-line # Home key: move to beginning of line
 bindkey "^[[F" end-of-line       # End key: move to end of line
@@ -36,7 +37,7 @@ alias tree="eza -T"
 alias zshrc="vim ~/.zshrc"
 compdef kubecolor=kubectl
 
-# history
+# HISTORY
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=10000
