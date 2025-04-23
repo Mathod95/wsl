@@ -63,6 +63,7 @@
     src: wsl.conf
     dest: /etc/wsl.conf
     mode: '0644'
+  become: true
 
 #- name: Ensure ~/config/zellij directory exists with correct permissions
 #  ansible.builtin.file:
