@@ -37,13 +37,13 @@ alias zshrc="vim ~/.zshrc"
 compdef kubecolor=kubectl
 
 # history
-HISTFILE=~/.histfile
+#HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=10000
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S " # Example: 2025-04-19 14:32:01
 setopt APPEND_HISTORY                      # append to the history file rather than replace it
 setopt INC_APPEND_HISTORY                  # don’t wait for shell to exit to save history lines
-setopt INC_APPEND_HISTORY_TIME             # only useful if INC_APPEND_HISTORY and SHARE_HISTORY are turned off
+setopt SHARE_HISTORY                       # Makes history consistent across multiple sessions (like WSL + VSCode).
 setopt BANG_HIST                           # enable “!” history expansion
 setopt EXTENDED_HISTORY                    # include timestamp
 setopt HIST_IGNORE_SPACE                   # do not save if line starts with space
