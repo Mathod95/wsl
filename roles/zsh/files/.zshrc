@@ -1,14 +1,15 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
 export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
+eval "$(zellij setup --generate-auto-start zsh)"
 
 # bind
 bindkey "^[[3~" delete-char      # rebind del key from "^[[3~" to "delete-char"
@@ -34,6 +35,21 @@ alias szshrc="source ~/.zshrc"
 alias tree="eza -T"
 alias zshrc="vim ~/.zshrc"
 compdef kubecolor=kubectl
+
+# history
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=10000
+export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S " # Example: 2025-04-19 14:32:01
+setopt APPEND_HISTORY                      # append to the history file rather than replace it
+setopt INC_APPEND_HISTORY                  # don’t wait for shell to exit to save history lines
+setopt INC_APPEND_HISTORY_TIME             # only useful if INC_APPEND_HISTORY and SHARE_HISTORY are turned off
+setopt BANG_HIST                           # enable “!” history expansion
+setopt EXTENDED_HISTORY                    # include timestamp
+setopt HIST_IGNORE_SPACE                   # do not save if line starts with space
+setopt HIST_REDUCE_BLANKS                  # strip superfluous blanks
+setopt HIST_IGNORE_DUPS                    # do not save duplicate of prior command
+setopt HIST_VERIFY                         # expand line without executing it
 
 # ZSH OPTIONS
 setopt CORRECT # corriger les fautes de frappe sur les commandes
