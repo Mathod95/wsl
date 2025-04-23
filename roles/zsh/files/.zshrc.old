@@ -1,14 +1,3 @@
-# path
-export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
-#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-#source /home/linuxbrew/.linuxbrew/opt/zplug/init.zsh
-export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
-eval "$(zellij setup --generate-auto-start zsh)"
-#source /home/linuxbrew/.linuxbrew/share/zsh-abbr/zsh-abbr.zsh
-#source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source /home/linuxbrew/.linuxbrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-#source $HOMEBREW_PREFIX/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
 # completion
 fpath+=/home/linuxbrew/.linuxbrew/share/zsh-abbr
 fpath+=($(brew --prefix)/share/zsh/functions)
@@ -30,10 +19,3 @@ setopt HIST_REDUCE_BLANKS                  # strip superfluous blanks
 setopt HIST_IGNORE_DUPS                    # do not save duplicate of prior command
 setopt HIST_VERIFY                         # expand line without executing it
 
-compdef kubecolor=kubectl
-
-# abbr https://zsh-abbr.olets.dev/configuration-variables.html
-ABBR_EXPAND_PUSH_ABBREVIATION_TO_HISTORY=1
-ABBR_SET_EXPANSION_CURSOR=1
-ABBR_EXPANSION_CURSOR_MARKER=%
-ABBR_SET_LINE_CURSOR=1

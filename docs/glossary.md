@@ -256,6 +256,7 @@
 ### zsh plugins
 - https://github.com/sindresorhus/pure | https://github.com/pure-fish/pure
 - https://github.com/unixorn/awesome-zsh-plugins
+- https://github.com/romkatv/powerlevel10k
 - https://github.com/zdharma-continuum/fast-syntax-highlighting
 - https://github.com/zsh-users/zsh-completions
 - https://github.com/zsh-users/zsh-autosuggestions
