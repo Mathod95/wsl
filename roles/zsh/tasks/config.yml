@@ -65,14 +65,14 @@
     mode: '0644'
   become: true
 
-#- name: Ensure ~/config/zellij directory exists with correct permissions
-#  ansible.builtin.file:
-#    path: "{{ ansible_env.HOME }}/.config/zellij"
-#    state: directory
-#    mode: '0755'
+- name: Ensure ~/config/zellij directory exists with correct permissions
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/zellij"
+    state: directory
+    mode: '0755'
 
-#- name: Copy config.kdl
-#  ansible.builtin.copy:
-#    src: config.kdl
-#    dest: "{{ ansible_env.HOME }}/.config/zellij/config.kdl"
-#    mode: '0644'
+- name: Copy config.kdl
+  ansible.builtin.copy:
+    src: config.kdl
+    dest: "{{ ansible_env.HOME }}/.config/zellij/config.kdl"
+    mode: '0644'
