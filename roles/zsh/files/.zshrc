@@ -37,7 +37,7 @@ alias zshrc="vim ~/.zshrc"
 compdef kubecolor=kubectl
 
 # history
-#HISTFILE=~/.histfile
+HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=10000
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S " # Example: 2025-04-19 14:32:01
