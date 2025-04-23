@@ -14,15 +14,12 @@ source $ZSH/oh-my-zsh.sh
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
-setopt HIST_IGNORE_DUPS       # Ignore duplicate commands
-setopt HIST_IGNORE_SPACE      # Don't save commands that start with a space
-setopt HIST_VERIFY            # Show command before executing from history
-setopt SHARE_HISTORY          # Share command history across sessions
-setopt APPEND_HISTORY         # Don't overwrite history
-setopt INC_APPEND_HISTORY     # Write to history immediately
-
-
-
+setopt HIST_IGNORE_DUPS                     # Ignore duplicate commands
+setopt HIST_IGNORE_SPACE                    # Don't save commands that start with a space
+setopt HIST_VERIFY                          # Show command before executing from history
+setopt SHARE_HISTORY                        # Share command history across sessions
+setopt APPEND_HISTORY                       # Don't overwrite history
+setopt INC_APPEND_HISTORY                   # Write to history immediately
 #setopt CSH_JUNKIE_HISTORY                  # csh behavior option
 #setopt HIST_ALLOW_CLOBBER                  # related to shell clobber setting
 #setopt HIST_BEEP                           # beep if attempting to access a history entry which isn’t there
@@ -85,17 +82,3 @@ source ${(q-)ZSH}/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 # source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # zstyle ':autocomplete:*' menu select
 # zstyle ':autocomplete:*' sort no
-
-# ---------------------------------------------------
-# Aliases (feel free to customize)
-# ---------------------------------------------------
-alias ls='ls --color=auto'
-alias ll='ls -lah'
-alias gs='git status'
-alias ..='cd ..'
-
-# ---------------------------------------------------
-# Powerlevel10k Config (Optional)
-# ---------------------------------------------------
-# If you run `p10k configure`, it'll add a block here
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
