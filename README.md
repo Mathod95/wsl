@@ -57,12 +57,14 @@ The roles are primarily declarative, created according to my personal needs, but
 | [zsh](https://github.com/zsh-users/zsh)                                 |             | [brew](https://formulae.brew.sh/formula/zsh)                 | :white_check_mark: |
 | [zplug](https://github.com/zplug/zplug/)                                |             | [brew](https://formulae.brew.sh/formula/zplug)               | :white_check_mark: |
 | [zsh-abbr](https://github.com/olets/zsh-abbr)                           |             | brew                                                         | :white_check_mark: |
-| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) |             | [brew](https://formulae.brew.sh/formula/zsh-autosuggestions) | TODO               |
-| [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)   |             | [brew](https://formulae.brew.sh/formula/zsh-autocomplete)    | TODO               |
-| [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) |             | [brew](https://formulae.brew.sh/formula/zsh-f-sy-h)          | TODO               |
-| [kubescape](https://github.com/kubescape/kubescape)                     |             | [brew](https://formulae.brew.sh/formula/kubescape)           | TODO               |
-| [kube-linter](https://github.com/stackrox/kube-linter)                  |             | [brew](https://formulae.brew.sh/formula/kube-linter)         | TODO               |
+| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) |             | [brew](https://formulae.brew.sh/formula/zsh-autosuggestions) | :white_check_mark: |
+| [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)   |             | [brew](https://formulae.brew.sh/formula/zsh-autocomplete)    | :white_check_mark: |
+| [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) |             | [brew](https://formulae.brew.sh/formula/zsh-f-sy-h)          | :white_check_mark: |
+| [powerlevel10k](https://github.com/romkatv/powerlevel10k)               |             | [zplug]()                                                    | :white_check_mark: |
+| [kubescape](https://github.com/kubescape/kubescape)                     |             | [brew]()                                                     | TODO               |
+| [kube-linter](https://github.com/stackrox/kube-linter)                  |             | [brew]()                                                     | TODO               |
 | [fastfetch](https://formulae.brew.sh/formula/fastfetch)                 |             | [brew](https://github.com/fastfetch-cli/fastfetch)           | TODO               |
+| [neovim](https://neovim.io/)                                            |             | [brew](https://formulae.brew.sh/formula/neovim)              | TODO               |
 
 ## Getting started
 
