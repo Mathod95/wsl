@@ -58,6 +58,12 @@
     dest: "{{ ansible_env.HOME }}/.p10k.zsh"
     mode: '0644'
 
+- name: Copy wsl.conf
+  ansible.builtin.copy:
+    src: wsl.conf
+    dest: /etc/wsl.conf
+    mode: '0644'
+
 #- name: Ensure ~/config/zellij directory exists with correct permissions
 #  ansible.builtin.file:
 #    path: "{{ ansible_env.HOME }}/.config/zellij"
