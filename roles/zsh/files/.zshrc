@@ -72,10 +72,28 @@ fi
 zplug load
 
 # ABBR https://zsh-abbr.olets.dev/configuration-variables.html
-ABBR_EXPAND_PUSH_ABBREVIATION_TO_HISTORY=1
+ABBR_EXPAND_PUSH_ABBREVIATION_TO_HISTORY=0
 ABBR_SET_EXPANSION_CURSOR=1
 ABBR_EXPANSION_CURSOR_MARKER=%
 ABBR_SET_LINE_CURSOR=1
+ABBR_GET_AVAILABLE_ABBREVIATION=1
+ABBR_LOG_AVAILABLE_ABBREVIATION=0                                                                                                                                    
+
+# Define the reminder function with custom colors
+my_abbreviation_reminder() {
+  if [[ -n "$ABBR_UNUSED_ABBREVIATION" ]]; then
+    # Set color codes
+    local red="\e[31m"
+    local reset="\e[0m"  # Reset color back to normal
+
+    # Display the custom reminder with proper colors
+    echo -e "Reminder: You could have used the abbreviation '${red}$ABBR_UNUSED_ABBREVIATION${reset}' for '${red}$ABBR_UNUSED_ABBREVIATION_EXPANSION${reset}'."
+  fi
+}
+
+# Add the function to the preexec hook to run before each command
+autoload -U add-zsh-hook
+add-zsh-hook preexec my_abbreviation_reminder
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
