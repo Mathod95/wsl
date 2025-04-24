@@ -46,6 +46,10 @@
     - zsh
     - zplug
     - olets/tap/zsh-abbr
+    - neovim
+    - tmux
+    - k9s
+    - opentofu
 
 - name: Get list of installed Homebrew packages with versions
   ansible.builtin.command: brew list --versions
