@@ -50,6 +50,7 @@
     - tmux
     - k9s
     - opentofu
+    - ripgrep
 
 - name: Get list of installed Homebrew packages with versions
   ansible.builtin.command: brew list --versions
@@ -59,49 +60,136 @@
   tags:
     - versions
 
+#- name: Parse Homebrew versions for each tool
+#  set_fact:
+#    ansible_version: "{{ brew_versions.stdout_lines | select('search', '^ansible ') | first | regex_replace('ansible\\s+', '') | default('❌ non installé') }}"
+#    argocd_version: "{{ brew_versions.stdout_lines | select('search', '^argocd ') | first | regex_replace('argocd\\s+', '') | default('❌ non installé') }}"
+#    awscli_version: "{{ brew_versions.stdout_lines | select('search', '^awscli ') | first | regex_replace('awscli\\s+', '') | default('❌ non installé') }}"
+#    helm_version: "{{ brew_versions.stdout_lines | select('search', '^helm ') | first | regex_replace('helm\\s+', '') | default('❌ non installé') }}"
+#    kind_version: "{{ brew_versions.stdout_lines | select('search', '^kind ') | first | regex_replace('kind\\s+', '') | default('❌ non installé') }}"
+#    bat_version: "{{ brew_versions.stdout_lines | select('search', '^bat ') | first | regex_replace('bat\\s+', '') | default('❌ non installé') }}"
+#    btop_version: "{{ brew_versions.stdout_lines | select('search', '^btop ') | first | regex_replace('btop\\s+', '') | default('❌ non installé') }}"
+#    curl_version: "{{ brew_versions.stdout_lines | select('search', '^curl ') | first | regex_replace('curl\\s+', '') | default('❌ non installé') }}"
+#    fd_version: "{{ brew_versions.stdout_lines | select('search', '^fd ') | first | regex_replace('fd\\s+', '') | default('❌ non installé') }}"
+#    fzf_version: "{{ brew_versions.stdout_lines | select('search', '^fzf ') | first | regex_replace('fzf\\s+', '') | default('❌ non installé') }}"
+#    git_version: "{{ brew_versions.stdout_lines | select('search', '^git ') | first | regex_replace('git\\s+', '') | default('❌ non installé') }}"
+#    krew_version: "{{ brew_versions.stdout_lines | select('search', '^krew ') | first | regex_replace('krew\\s+', '') | default('❌ non installé') }}"
+#    kubectx_version: "{{ brew_versions.stdout_lines | select('search', '^kubectx ') | first | regex_replace('kubectx\\s+', '') | default('❌ non installé') }}"
+#    systemd_version: "{{ brew_versions.stdout_lines | select('search', '^systemd ') | first | regex_replace('systemd\\s+', '') | default('❌ non installé') }}"
+#    unzip_version: "{{ brew_versions.stdout_lines | select('search', '^unzip ') | first | regex_replace('unzip\\s+', '') | default('❌ non installé') }}"
+#    vim_version: "{{ brew_versions.stdout_lines | select('search', '^vim ') | first | regex_replace('vim\\s+', '') | default('❌ non installé') }}"
+#    zellij_version: "{{ brew_versions.stdout_lines | select('search', '^zellij ') | first | regex_replace('zellij\\s+', '') | default('❌ non installé') }}"
+#    kubectl_version: "{{ brew_versions.stdout_lines | select('search', '^kubernetes-cli ') | first | regex_replace('kubernetes-cli\\s+', '') | default('❌ non installé') }}"
+#  tags:
+#    - versions
+
 - name: Parse Homebrew versions for each tool
   set_fact:
+    ansible_version: "{{ brew_versions.stdout_lines | select('search', '^ansible ') | first | regex_replace('ansible\\s+', '') | default('❌ non installé') }}"
     argocd_version: "{{ brew_versions.stdout_lines | select('search', '^argocd ') | first | regex_replace('argocd\\s+', '') | default('❌ non installé') }}"
-    helm_version: "{{ brew_versions.stdout_lines | select('search', '^helm ') | first | regex_replace('helm\\s+', '') | default('❌ non installé') }}"
-    kind_version: "{{ brew_versions.stdout_lines | select('search', '^kind ') | first | regex_replace('kind\\s+', '') | default('❌ non installé') }}"
-    #ansible_version: "{{ brew_versions.stdout_lines | select('search', '^ansible ') | first | regex_replace('^ansible\\s+', '') | regex_replace(\"'([^']+)'\", '\\1') | default('❌ non installé') }}"
+    awscli_version: "{{ brew_versions.stdout_lines | select('search', '^awscli ') | first | regex_replace('awscli\\s+', '') | default('❌ non installé') }}"
     bat_version: "{{ brew_versions.stdout_lines | select('search', '^bat ') | first | regex_replace('bat\\s+', '') | default('❌ non installé') }}"
     btop_version: "{{ brew_versions.stdout_lines | select('search', '^btop ') | first | regex_replace('btop\\s+', '') | default('❌ non installé') }}"
+    cilium_version: "{{ brew_versions.stdout_lines | select('search', '^cilium-cli ') | first | regex_replace('cilium-cli\\s+', '') | default('❌ non installé') }}"
+    crossplane_version: "{{ brew_versions.stdout_lines | select('search', '^crossplane ') | first | regex_replace('crossplane\\s+', '') | default('❌ non installé') }}"
     curl_version: "{{ brew_versions.stdout_lines | select('search', '^curl ') | first | regex_replace('curl\\s+', '') | default('❌ non installé') }}"
+    docker_version: "{{ brew_versions.stdout_lines | select('search', '^docker ') | first | regex_replace('docker\\s+', '') | default('❌ non installé') }}"
+    eza_version: "{{ brew_versions.stdout_lines | select('search', '^eza ') | first | regex_replace('eza\\s+', '') | default('❌ non installé') }}"
     fd_version: "{{ brew_versions.stdout_lines | select('search', '^fd ') | first | regex_replace('fd\\s+', '') | default('❌ non installé') }}"
     fzf_version: "{{ brew_versions.stdout_lines | select('search', '^fzf ') | first | regex_replace('fzf\\s+', '') | default('❌ non installé') }}"
     git_version: "{{ brew_versions.stdout_lines | select('search', '^git ') | first | regex_replace('git\\s+', '') | default('❌ non installé') }}"
+    helm_version: "{{ brew_versions.stdout_lines | select('search', '^helm ') | first | regex_replace('helm\\s+', '') | default('❌ non installé') }}"
+    k9s_version: "{{ brew_versions.stdout_lines | select('search', '^k9s ') | first | regex_replace('k9s\\s+', '') | default('❌ non installé') }}"
+    keychain_version: "{{ brew_versions.stdout_lines | select('search', '^keychain ') | first | regex_replace('keychain\\s+', '') | default('❌ non installé') }}"
+    kind_version: "{{ brew_versions.stdout_lines | select('search', '^kind ') | first | regex_replace('kind\\s+', '') | default('❌ non installé') }}"
     krew_version: "{{ brew_versions.stdout_lines | select('search', '^krew ') | first | regex_replace('krew\\s+', '') | default('❌ non installé') }}"
-    kubectx_version: "{{ brew_versions.stdout_lines | select('search', '^kubectx ') | first | regex_replace('kubectx\\s+', '') | default('❌ non installé') }}"
-    systemd_version: "{{ brew_versions.stdout_lines | select('search', '^systemd ') | first | regex_replace('systemd\\s+', '') | default('❌ non installé') }}"
-    unzip_version: "{{ brew_versions.stdout_lines | select('search', '^unzip ') | first | regex_replace('unzip\\s+', '') | default('❌ non installé') }}"
-    vim_version: "{{ brew_versions.stdout_lines | select('search', '^vim ') | first | regex_replace('vim\\s+', '') | default('❌ non installé') }}"
-    zellij_version: "{{ brew_versions.stdout_lines | select('search', '^zellij ') | first | regex_replace('zellij\\s+', '') | default('❌ non installé') }}"
+    kube_score_version: "{{ brew_versions.stdout_lines | select('search', '^kube-score ') | first | regex_replace('kube-score\\s+', '') | default('❌ non installé') }}"
+    kubecolor_version: "{{ brew_versions.stdout_lines | select('search', '^kubecolor ') | first | regex_replace('kubecolor\\s+', '') | default('❌ non installé') }}"
     kubectl_version: "{{ brew_versions.stdout_lines | select('search', '^kubernetes-cli ') | first | regex_replace('kubernetes-cli\\s+', '') | default('❌ non installé') }}"
+    kubectx_version: "{{ brew_versions.stdout_lines | select('search', '^kubectx ') | first | regex_replace('kubectx\\s+', '') | default('❌ non installé') }}"
+    kustomize_version: "{{ brew_versions.stdout_lines | select('search', '^kustomize ') | first | regex_replace('kustomize\\s+', '') | default('❌ non installé') }}"
+    kyverno_version: "{{ brew_versions.stdout_lines | select('search', '^kyverno ') | first | regex_replace('kyverno\\s+', '') | default('❌ non installé') }}"
+    neovim_version: "{{ brew_versions.stdout_lines | select('search', '^neovim ') | first | regex_replace('neovim\\s+', '') | default('❌ non installé') }}"
+    opentofu_version: "{{ brew_versions.stdout_lines | select('search', '^opentofu ') | first | regex_replace('opentofu\\s+', '') | default('❌ non installé') }}"
+    systemd_version: "{{ brew_versions.stdout_lines | select('search', '^systemd ') | first | regex_replace('systemd\\s+', '') | default('❌ non installé') }}"
+    tmux_version: "{{ brew_versions.stdout_lines | select('search', '^tmux ') | first | regex_replace('tmux\\s+', '') | default('❌ non installé') }}"
+    unzip_version: "{{ brew_versions.stdout_lines | select('search', '^unzip ') | first | regex_replace('unzip\\s+', '') | default('❌ non installé') }}"
+    velero_version: "{{ brew_versions.stdout_lines | select('search', '^velero ') | first | regex_replace('velero\\s+', '') | default('❌ non installé') }}"
+    vim_version: "{{ brew_versions.stdout_lines | select('search', '^vim ') | first | regex_replace('vim\\s+', '') | default('❌ non installé') }}"
+    wget_version: "{{ brew_versions.stdout_lines | select('search', '^wget ') | first | regex_replace('wget\\s+', '') | default('❌ non installé') }}"
+    zellij_version: "{{ brew_versions.stdout_lines | select('search', '^zellij ') | first | regex_replace('zellij\\s+', '') | default('❌ non installé') }}"
+    zplug_version: "{{ brew_versions.stdout_lines | select('search', '^zplug ') | first | regex_replace('zplug\\s+', '') | default('❌ non installé') }}"
+    zsh_abbr_version: "{{ brew_versions.stdout_lines | select('search', '^zsh-abbr ') | first | regex_replace('zsh-abbr\\s+', '') | default('❌ non installé') }}"
+    zsh_version: "{{ brew_versions.stdout_lines | select('search', '^zsh ') | first | regex_replace('zsh\\s+', '') | default('❌ non installé') }}"
   tags:
     - versions
+
+#- name: Set version message as a multi-line string
+#  set_fact:
+#    versions_text: |
+#      📦 Pacakges installed :
+#      --------------------------------------------
+#      🐙  ArgoCD  : {{ argocd_version }}
+#      🛳️  Helm    : {{ helm_version }}
+#      🧱  Kind    : {{ kind_version }}
+#      📦  Bat     : {{ bat_version }}
+#      📊  Btop    : {{ btop_version }}
+#      🌊  Curl    : {{ curl_version }}
+#      🐬  Fd      : {{ fd_version }}
+#      🐠  Fzf     : {{ fzf_version }}
+#      🐙  Git     : {{ git_version }}
+#      🧩  Krew    : {{ krew_version }}
+#      🧭  Kubectx : {{ kubectx_version }}
+#      🐋  Kubectl : {{ kubectl_version }}
+#      🛠️  Systemd : {{ systemd_version }}
+#      📦  Unzip   : {{ unzip_version }}
+#      🐍  Vim     : {{ vim_version }}
+#      🧩  Zellij  : {{ zellij_version }}
+#      --------------------------------------------
+#  tags:
+#    - versions
 
 - name: Set version message as a multi-line string
   set_fact:
     versions_text: |
-      📦 Pacakges installed :
+      📦 Packages installed :
       --------------------------------------------
-      🐙  ArgoCD  : {{ argocd_version }}
-      🛳️  Helm    : {{ helm_version }}
-      🧱  Kind    : {{ kind_version }}
-      📦  Bat     : {{ bat_version }}
-      📊  Btop    : {{ btop_version }}
-      🌊  Curl    : {{ curl_version }}
-      🐬  Fd      : {{ fd_version }}
-      🐠  Fzf     : {{ fzf_version }}
-      🐙  Git     : {{ git_version }}
-      🧩  Krew    : {{ krew_version }}
-      🧭  Kubectx : {{ kubectx_version }}
-      🐋  Kubectl : {{ kubectl_version }}
-      🛠️  Systemd : {{ systemd_version }}
-      📦  Unzip   : {{ unzip_version }}
-      🐍  Vim     : {{ vim_version }}
-      🧩  Zellij  : {{ zellij_version }}
+      🧪  Ansible        : {{ ansible_version }}
+      🐙  ArgoCD         : {{ argocd_version }}
+      ☁️  AWS CLI        : {{ awscli_version }}
+      📦  Bat            : {{ bat_version }}
+      📊  Btop           : {{ btop_version }}
+      🧬  Cilium         : {{ cilium_version }}
+      🛠️  Crossplane     : {{ crossplane_version }}
+      🌊  Curl           : {{ curl_version }}
+      🐳  Docker         : {{ docker_version }}
+      📁  Eza            : {{ eza_version }}
+      🐬  Fd             : {{ fd_version }}
+      🐠  Fzf            : {{ fzf_version }}
+      🐙  Git            : {{ git_version }}
+      🛳️  Helm           : {{ helm_version }}
+      🖥️  K9s            : {{ k9s_version }}
+      🔐  Keychain       : {{ keychain_version }}
+      🧱  Kind           : {{ kind_version }}
+      🧩  Krew           : {{ krew_version }}
+      🧪  Kube Score     : {{ kube_score_version }}
+      🎨  Kubecolor      : {{ kubecolor_version }}
+      🧭  Kubectx        : {{ kubectx_version }}
+      🐋  Kubectl        : {{ kubectl_version }}
+      🧩  Kustomize      : {{ kustomize_version }}
+      🛡️  Kyverno        : {{ kyverno_version }}
+      ✨  Neovim         : {{ neovim_version }}
+      🌍  Opentofu       : {{ opentofu_version }}
+      🛠️  Systemd        : {{ systemd_version }}
+      🔧  Tmux           : {{ tmux_version }}
+      📦  Unzip          : {{ unzip_version }}
+      🛟  Velero         : {{ velero_version }}
+      🐍  Vim            : {{ vim_version }}
+      🛰️  Wget           : {{ wget_version }}
+      🧩  Zellij         : {{ zellij_version }}
+      🔌  Zplug          : {{ zplug_version }}
+      💻  Zsh            : {{ zsh_version }}
+      🔤  Zsh-Abbr       : {{ zsh_abbr_version }}
       --------------------------------------------
   tags:
     - versions
