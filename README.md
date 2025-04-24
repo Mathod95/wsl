@@ -17,55 +17,55 @@ The roles are primarily declarative, created according to my personal needs, but
 4. [Useful Links](#useful-links)
 
 ## Features
-| name                                                                    | description | method                                                       | status             |
-|-------------------------------------------------------------------------|-------------|--------------------------------------------------------------|--------------------|
-| bootstrap                                                               |             | bash                                                         | TODO               |
-| ssh                                                                     |             | ansible                                                      | TODO               |
-| docker                                                                  |             | [brew](https://formulae.brew.sh/formula/)                    | :white_check_mark: |
-| [vscode](https://github.com/microsoft/vscode)                           |             | bash                                                         | :white_check_mark: |
-| [krew](https://krew.sigs.k8s.io/)                                       |             | [brew](https://formulae.brew.sh/formula/krew)                | :white_check_mark: |
-| [awscli](https://github.com/aws/aws-cli)                                |             | [brew](https://formulae.brew.sh/formula/awscli)              | :white_check_mark: |
-| [opentofu](https://github.com/opentofu/opentofu)                        |             | [brew](https://formulae.brew.sh/formula/opentofu)            | :white_check_mark: |
-| [crossplane](https://github.com/crossplane/crossplane)                  |             | [brew](https://formulae.brew.sh/formula/crossplane)          | :white_check_mark: |
-| [ansible](https://github.com/ansible/ansible)                           |             | [brew](https://formulae.brew.sh/formula/ansible)             | :white_check_mark: |
-| [argocd](https://github.com/argoproj/argo-cd)                           |             | [brew](https://formulae.brew.sh/formula/argocd)              | :white_check_mark: |
-| [curl](https://github.com/curl/curl)                                    |             | [brew](https://formulae.brew.sh/formula/curl)                | :white_check_mark: |
-| git                                                                     |             | bash                                                         | :white_check_mark: |
-| [vim](https://github.com/vim/vim)                                       |             | [brew](https://formulae.brew.sh/formula/vim)                 | :white_check_mark: |
-| [systemd](https://github.com/systemd/systemd)                           |             | [brew](https://formulae.brew.sh/formula/systemd)             | :white_check_mark: |
-| [bat](https://github.com/sharkdp/bat)                                   |             | [brew](https://formulae.brew.sh/formula/bat)                 | :white_check_mark: |
-| [fd](https://github.com/sharkdp/fd)                                     |             | [brew](https://formulae.brew.sh/formula/fd)                  | :white_check_mark: |
-| [fzf](https://github.com/junegunn/fzf)                                  |             | [brew](https://formulae.brew.sh/formula/fzf)                 | :white_check_mark: |
-| [btop](https://github.com/aristocratos/btop)                            |             | [brew](https://formulae.brew.sh/formula/btop)                | :white_check_mark: |
-| [helm](https://github.com/helm/helm)                                    |             | [brew](https://formulae.brew.sh/formula/helm)                | :white_check_mark: |
-| [kind](https://github.com/kubernetes-sigs/kind)                         |             | [brew](https://formulae.brew.sh/formula/kind)                | :white_check_mark: |
-| [kubectl](https://github.com/kubernetes/kubectl)                        |             | [brew](https://formulae.brew.sh/formula/kubernetes-cli)      | :white_check_mark: |
-| [kubectx](https://github.com/ahmetb/kubectx)                            |             | [brew](https://formulae.brew.sh/formula/kubectx)             | :white_check_mark: |
-| [zellij](https://github.com/zellij-org/zellij)                          |             | [brew](https://formulae.brew.sh/formula/zellij)              | :white_check_mark: |
-| [keychain](https://github.com/funtoo/keychain)                          |             | [brew](https://formulae.brew.sh/formula/keychain)            | :white_check_mark: |
-| wget                                                                    |             | [brew](https://formulae.brew.sh/formula/wget)                | :white_check_mark: |
-| [k9s](https://github.com/derailed/k9s)                                  |             | [brew](https://formulae.brew.sh/formula/k9s)                 | :white_check_mark: |
-| [tlrc](https://github.com/tldr-pages/tlrc)                              |             | [brew](https://formulae.brew.sh/formula/tlrc)                | :white_check_mark: |
-| [eza](https://github.com/eza-community/eza)                             |             | [brew](https://formulae.brew.sh/formula/eza)                 | :white_check_mark: |
-| [kubecolor](https://github.com/kubecolor/kubecolor)                     |             | [brew](https://formulae.brew.sh/formula/kubecolor)           | :white_check_mark: |
-| [cilium-cli](https://github.com/cilium/cilium-cli)                      |             | [brew](https://formulae.brew.sh/formula/cilium-cli)          | :white_check_mark: |
-| [kustomize](https://github.com/kubernetes-sigs/kustomize)               |             | [brew](https://formulae.brew.sh/formula/kustomize)           | :white_check_mark: |
-| [kyverno](https://github.com/kyverno/kyverno)                           |             | [brew](https://formulae.brew.sh/formula/kyverno)             | :white_check_mark: |
-| [velero](https://github.com/vmware-tanzu/velero)                        |             | [brew](https://formulae.brew.sh/formula/velero)              | :white_check_mark: |
-| [kube-score](https://github.com/zegl/kube-score)                        |             | [brew](https://formulae.brew.sh/formula/kube-score)          | :white_check_mark: |
-| [zsh](https://github.com/zsh-users/zsh)                                 |             | [brew](https://formulae.brew.sh/formula/zsh)                 | :white_check_mark: |
-| [zplug](https://github.com/zplug/zplug/)                                |             | [brew](https://formulae.brew.sh/formula/zplug)               | :white_check_mark: |
-| [zsh-abbr](https://github.com/olets/zsh-abbr)                           |             | brew                                                         | :white_check_mark: |
-| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) |             | [brew](https://formulae.brew.sh/formula/zsh-autosuggestions) | :white_check_mark: |
-| [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)   |             | [brew](https://formulae.brew.sh/formula/zsh-autocomplete)    | :white_check_mark: |
-| [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) |             | [brew](https://formulae.brew.sh/formula/zsh-f-sy-h)          | :white_check_mark: |
-| [powerlevel10k](https://github.com/romkatv/powerlevel10k)               |             | [zplug]()                                                    | :white_check_mark: |
-| [kubescape](https://github.com/kubescape/kubescape)                     |             | [brew]()                                                     | TODO               |
-| [kube-linter](https://github.com/stackrox/kube-linter)                  |             | [brew]()                                                     | TODO               |
-| [fastfetch](https://formulae.brew.sh/formula/fastfetch)                 |             | [brew](https://github.com/fastfetch-cli/fastfetch)           | TODO               |
-| [neovim](https://neovim.io/)                                            |             | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
-| [nvchad](https://neovim.io/)                                            |             | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
-| [tmux](https://neovim.io/)                                              |             | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
+| name                                                                    | description                       | method                                                       | status             |
+|-------------------------------------------------------------------------|-------------                      |--------------------------------------------------------------|--------------------|
+| bootstrap                                                               |                                   | bash                                                         | TODO               |
+| ssh                                                                     |                                   | ansible                                                      | TODO               |
+| docker                                                                  | Container engine                  | [brew](https://formulae.brew.sh/formula/)                    | :white_check_mark: |
+| [vscode](https://github.com/microsoft/vscode)                           | Code editor                       | bash                                                         | :white_check_mark: |
+| [krew](https://krew.sigs.k8s.io/)                                       | kubectl plugin manager            | [brew](https://formulae.brew.sh/formula/krew)                | :white_check_mark: |
+| [awscli](https://github.com/aws/aws-cli)                                | AWS command-line interface        | [brew](https://formulae.brew.sh/formula/awscli)              | :white_check_mark: |
+| [opentofu](https://github.com/opentofu/opentofu)                        | IaC provisioning tool             | [brew](https://formulae.brew.sh/formula/opentofu)            | :white_check_mark: |
+| [crossplane](https://github.com/crossplane/crossplane)                  | Cloud-native control planes       | [brew](https://formulae.brew.sh/formula/crossplane)          | :white_check_mark: |
+| [ansible](https://github.com/ansible/ansible)                           | Automation engine                 | [brew](https://formulae.brew.sh/formula/ansible)             | :white_check_mark: |
+| [argocd](https://github.com/argoproj/argo-cd)                           | GitOps CD tool                    | [brew](https://formulae.brew.sh/formula/argocd)              | :white_check_mark: |
+| [curl](https://github.com/curl/curl)                                    | Transfer data via URLs            | [brew](https://formulae.brew.sh/formula/curl)                | :white_check_mark: |
+| git                                                                     | Version control system            | bash                                                         | :white_check_mark: |
+| [vim](https://github.com/vim/vim)                                       | Terminal-based text editor        | [brew](https://formulae.brew.sh/formula/vim)                 | :white_check_mark: |
+| [systemd](https://github.com/systemd/systemd)                           | Service manager for Linux         | [brew](https://formulae.brew.sh/formula/systemd)             | :white_check_mark: |
+| [bat](https://github.com/sharkdp/bat)                                   | Cat with syntax highlighting      | [brew](https://formulae.brew.sh/formula/bat)                 | :white_check_mark: |
+| [fd](https://github.com/sharkdp/fd)                                     | Fast alternative to `find`        | [brew](https://formulae.brew.sh/formula/fd)                  | :white_check_mark: |
+| [fzf](https://github.com/junegunn/fzf)                                  | Fuzzy finder                      | [brew](https://formulae.brew.sh/formula/fzf)                 | :white_check_mark: |
+| [btop](https://github.com/aristocratos/btop)                            | Resource monitor                  | [brew](https://formulae.brew.sh/formula/btop)                | :white_check_mark: |
+| [helm](https://github.com/helm/helm)                                    | Kubernetes package manager        | [brew](https://formulae.brew.sh/formula/helm)                | :white_check_mark: |
+| [kind](https://github.com/kubernetes-sigs/kind)                         | Run K8s in Docker                 | [brew](https://formulae.brew.sh/formula/kind)                | :white_check_mark: |
+| [kubectl](https://github.com/kubernetes/kubectl)                        | K8s CLI                           | [brew](https://formulae.brew.sh/formula/kubernetes-cli)      | :white_check_mark: |
+| [kubectx](https://github.com/ahmetb/kubectx)                            | Context switcher for kubectl      | [brew](https://formulae.brew.sh/formula/kubectx)             | :white_check_mark: |
+| [zellij](https://github.com/zellij-org/zellij)                          | Terminal workspace                | [brew](https://formulae.brew.sh/formula/zellij)              | :white_check_mark: |
+| [keychain](https://github.com/funtoo/keychain)                          | Manage SSH keys                   | [brew](https://formulae.brew.sh/formula/keychain)            | :white_check_mark: |
+| wget                                                                    | Download utility                  | [brew](https://formulae.brew.sh/formula/wget)                | :white_check_mark: |
+| [k9s](https://github.com/derailed/k9s)                                  | K8s terminal UI                   | [brew](https://formulae.brew.sh/formula/k9s)                 | :white_check_mark: |
+| [tlrc](https://github.com/tldr-pages/tlrc)                              | TLDR command viewer               | [brew](https://formulae.brew.sh/formula/tlrc)                | :white_check_mark: |
+| [eza](https://github.com/eza-community/eza)                             | Modern `ls` replacement           | [brew](https://formulae.brew.sh/formula/eza)                 | :white_check_mark: |
+| [kubecolor](https://github.com/kubecolor/kubecolor)                     | Colorize kubectl output           | [brew](https://formulae.brew.sh/formula/kubecolor)           | :white_check_mark: |
+| [cilium-cli](https://github.com/cilium/cilium-cli)                      | Cilium CLI tool                   | [brew](https://formulae.brew.sh/formula/cilium-cli)          | :white_check_mark: |
+| [kustomize](https://github.com/kubernetes-sigs/kustomize)               | K8s YAML customization            | [brew](https://formulae.brew.sh/formula/kustomize)           | :white_check_mark: |
+| [kyverno](https://github.com/kyverno/kyverno)                           | K8s policy engine                 | [brew](https://formulae.brew.sh/formula/kyverno)             | :white_check_mark: |
+| [velero](https://github.com/vmware-tanzu/velero)                        | Backup for Kubernetes             | [brew](https://formulae.brew.sh/formula/velero)              | :white_check_mark: |
+| [kube-score](https://github.com/zegl/kube-score)                        | Static code analysis for K8s      | [brew](https://formulae.brew.sh/formula/kube-score)          | :white_check_mark: |
+| [zsh](https://github.com/zsh-users/zsh)                                 | Shell                             | [brew](https://formulae.brew.sh/formula/zsh)                 | :white_check_mark: |
+| [zplug](https://github.com/zplug/zplug/)                                | Zsh plugin manager                | [brew](https://formulae.brew.sh/formula/zplug)               | :white_check_mark: |
+| [zsh-abbr](https://github.com/olets/zsh-abbr)                           | Abbreviation plugin for Zsh       | brew                                                         | :white_check_mark: |
+| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | Fish-like autosuggestions for Zsh | [brew](https://formulae.brew.sh/formula/zsh-autosuggestions) | :white_check_mark: |
+| [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)   | Fast, simple Zsh autocomplete     | [brew](https://formulae.brew.sh/formula/zsh-autocomplete)    | :white_check_mark: |
+| [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) | Zsh syntax highlighting           | [brew](https://formulae.brew.sh/formula/zsh-f-sy-h)          | :white_check_mark: |
+| [powerlevel10k](https://github.com/romkatv/powerlevel10k)               | Zsh powerlines                    | [zplug]()                                                    | :white_check_mark: |
+| [kubescape](https://github.com/kubescape/kubescape)                     | Kubernetes security scanner       | [brew]()                                                     | TODO               |
+| [kube-linter](https://github.com/stackrox/kube-linter)                  | Linter for Kubernetes YAML        | [brew]()                                                     | TODO               |
+| [fastfetch](https://formulae.brew.sh/formula/fastfetch)                 | System information tool           | [brew](https://github.com/fastfetch-cli/fastfetch)           | TODO               |
+| [neovim](https://neovim.io/)                                            | Vim-based modern editor           | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
+| [nvchad](https://neovim.io/)                                            | Neovim config framework           | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
+| [tmux](https://neovim.io/)                                              | Terminal multiplexer              | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
 
 ## Getting started
 
