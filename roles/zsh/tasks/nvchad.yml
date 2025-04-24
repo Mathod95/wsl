@@ -3,11 +3,10 @@
     path: "{{ ansible_env.HOME }}/.config/nvim"
     state: absent
 
-- name: Clone NvChad repository
-  ansible.builtin.git:
-    repo: https://github.com/NvChad/NvChad
-    dest: "{{ ansible_env.HOME }}/.config/nvim"
-    depth: 1
+- name: Clone NvChad starter repository
+  ansible.builtin.shell:
+    cmd: git clone https://github.com/NvChad/starter ~/.config/nvim
+    creates: "{{ ansible_env.HOME }}/.config/nvim"
 
 - name: Remove .git folder from NvChad
   ansible.builtin.file:
