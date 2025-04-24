@@ -25,7 +25,7 @@ The roles are primarily declarative, created according to my personal needs, but
 | [vscode](https://github.com/microsoft/vscode)                           |             | bash                                                         | TODO               |
 | [krew](https://krew.sigs.k8s.io/)                                       |             | [brew](https://formulae.brew.sh/formula/krew)                | TODO               |
 | [awscli](https://github.com/aws/aws-cli)                                |             | [brew](https://formulae.brew.sh/formula/awscli)              | TODO               |
-| [terraform](https://github.com/hashicorp/terraform)                     |             | ansible                                                      | TODO               |
+| [opentofu](https://github.com/opentofu/opentofu)                        |             | [brew](https://formulae.brew.sh/formula/opentofu)            | TODO               |
 | [crossplane](https://github.com/crossplane/crossplane)                  |             | [brew](https://formulae.brew.sh/formula/crossplane)          | TODO               |
 | [ansible](https://github.com/ansible/ansible)                           |             | [brew](https://formulae.brew.sh/formula/ansible)             | TODO               |
 | [argocd](https://github.com/argoproj/argo-cd)                           |             | [brew](https://formulae.brew.sh/formula/argocd)              | TODO               |
@@ -52,7 +52,6 @@ The roles are primarily declarative, created according to my personal needs, but
 | [kustomize](https://github.com/kubernetes-sigs/kustomize)               |             | [brew](https://formulae.brew.sh/formula/kustomize)           | TODO               |
 | [kyverno](https://github.com/kyverno/kyverno)                           |             | [brew](https://formulae.brew.sh/formula/kyverno)             | TODO               |
 | [velero](https://github.com/vmware-tanzu/velero)                        |             | [brew](https://formulae.brew.sh/formula/velero)              | TODO               |
-| [zoxide](https://github.com/ajeetdsouza/zoxide)                         |             | [brew](https://formulae.brew.sh/formula/zoxide)              | TODO               |
 | [kube-score](https://github.com/zegl/kube-score)                        |             | [brew](https://formulae.brew.sh/formula/kube-score)          | TODO               |
 | [zsh](https://github.com/zsh-users/zsh)                                 |             | [brew](https://formulae.brew.sh/formula/zsh)                 | :white_check_mark: |
 | [zplug](https://github.com/zplug/zplug/)                                |             | [brew](https://formulae.brew.sh/formula/zplug)               | :white_check_mark: |
@@ -65,6 +64,9 @@ The roles are primarily declarative, created according to my personal needs, but
 | [kube-linter](https://github.com/stackrox/kube-linter)                  |             | [brew]()                                                     | TODO               |
 | [fastfetch](https://formulae.brew.sh/formula/fastfetch)                 |             | [brew](https://github.com/fastfetch-cli/fastfetch)           | TODO               |
 | [neovim](https://neovim.io/)                                            |             | [brew](https://formulae.brew.sh/formula/neovim)              | TODO               |
+| [nvchad](https://neovim.io/)                                            |             | [brew](https://formulae.brew.sh/formula/neovim)              | TODO               |
+| [tmux](https://neovim.io/)                                              |             | [brew](https://formulae.brew.sh/formula/neovim)              | TODO               |
+| [k9s](https://neovim.io/)                                               |             | [brew](https://formulae.brew.sh/formula/neovim)              | TODO               |
 
 ## Getting started
 
