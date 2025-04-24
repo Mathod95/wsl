@@ -71,8 +71,20 @@
     state: directory
     mode: '0755'
 
+- name: Ensure ~/config/zellij/themes directory exists with correct permissions
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/zellij/themes"
+    state: directory
+    mode: '0755'
+
 - name: Copy config.kdl
   ansible.builtin.copy:
     src: config.kdl
     dest: "{{ ansible_env.HOME }}/.config/zellij/config.kdl"
+    mode: '0644'
+
+- name: Copy dracula.kdl
+  ansible.builtin.copy:
+    src: dracula.kdl
+    dest: "{{ ansible_env.HOME }}/.config/zellij/themes/dracula.kdl"
     mode: '0644'
