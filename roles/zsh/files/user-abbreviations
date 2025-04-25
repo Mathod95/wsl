@@ -15,3 +15,16 @@ abbr "kgpons"="kubectl get pods % --namespace %"
 abbr "k"="kubectl"
 abbr "kctx"="kubectx"
 abbr "kns"="kubens"
+
+# cd
+abbr ".."="cd .."
+abbr "..."="cd ../.."
+
+# ls
+abbr "la"="eza -la --icons"
+abbr "ls"="eza -a --icons"
+abbr "tree"="eza -T"
+
+# .zshrc
+abbr "szshrc"="source ~/.zshrc"
+abbr "zshrc"="vim ~/.zshrc"
