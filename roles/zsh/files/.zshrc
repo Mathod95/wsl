@@ -62,6 +62,8 @@ zplug "marlonrichert/zsh-autocomplete"
 zplug "olets/zsh-abbr"
 zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
+zplug "Aloxaf/fzf-tab"
+zplug "joshskidmore/zsh-fzf-history-search"
 
 if ! zplug check; then
     echo "Missing plugins detected. Installing..."
@@ -94,6 +96,61 @@ my_abbreviation_reminder() {
 # Add the function to the preexec hook to run before each command
 autoload -U add-zsh-hook
 add-zsh-hook preexec my_abbreviation_reminder
+
+#################################################
+
+## fzf
+# -- fzf settings --
+export FZF_DEFAULT_OPTS="
+  --height=40%
+  --layout=reverse
+  --border
+  --info=inline
+  --color=bg+:24
+"
+
+# -- fzf-tab specific settings --
+zstyle ':completion:*' fzf-tab-cycle yes
+zstyle ':completion:*' fzf-tab-preview ''
+
+# -- Custom key bindings --
+# CTRL-R to search command history with fzf
+bindkey '^R' fzf-history-widget
+
+## --- FZF file selector: Ctrl+Alt+F ---
+#
+## Define a widget function
+#fzf_select_files() {
+#  local selected
+#  selected=$(find . -type f -o -type d \( ! -path '*/\.*' \) | sed 's|^\./||' | \
+#    fzf --prompt="Files> " \
+#        --multi \
+#        --height=80% \
+#        --layout=reverse \
+#        --border \
+#        --preview '
+#          if [[ -n "{}" && -e "{}" ]]; then
+#            [[ -d "{}" ]] && eza -T --color=always "{}" || bat --style=numbers --color=always --line-range=:500 -- "{}"
+#          else
+#            echo "Invalid or empty selection"
+#          fi
+#        ')
+#
+#  # Ensure valid selection before appending to LBUFFER
+#  if [[ -n "$selected" && -e "$selected" ]]; then
+#    LBUFFER+="$selected"
+#  else
+#    echo "No valid selection"
+#  fi
+#}
+#
+## Tell Zsh this is a ZLE widget
+#zle -N fzf_select_files
+#
+## Bind Ctrl+Alt+F to the widget
+#bindkey '^[^F' fzf_select_files
+
+#################################################
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
