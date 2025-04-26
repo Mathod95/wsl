@@ -62,8 +62,8 @@ zplug "marlonrichert/zsh-autocomplete"
 zplug "olets/zsh-abbr"
 zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
-zplug "Aloxaf/fzf-tab"
-zplug "joshskidmore/zsh-fzf-history-search"
+#zplug "Aloxaf/fzf-tab"
+#zplug "joshskidmore/zsh-fzf-history-search"
 
 if ! zplug check; then
     echo "Missing plugins detected. Installing..."
