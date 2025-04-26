@@ -30,16 +30,17 @@ abbr "szshrc"="source ~/.zshrc"
 abbr "zshrc"="vim ~/.zshrc"
 
 # kind
-abbr "kicc"  = "kind create cluster"        | Creates a local Kubernetes cluster   
-abbr "kiccn" = "kind create cluster"        |
-abbr "kigc"  = "kind get clusters"          | Lists existing kind clusters by their name
-abbr "kidc"  = "kind delete cluster"        | Deletes a cluster    
-abbr "kidcn" = "kind delete cluster --name" |
-abbr "kidca" = "kind delete clusters -A"    |
-abbr "kigk"  = "kind get kubeconfig"        | Prints cluster kubeconfig  
+abbr "kicc"="kind create cluster"
+abbr "kiccn"="kind create cluster"
+abbr "kigc"="kind get clusters"
+abbr "kign"="kind get nodes"
+abbr "kidc"="kind delete cluster"
+abbr "kidcn"="kind delete cluster --name"
+abbr "kidca"="kind delete clusters -A"
+abbr "kigk"="kind get kubeconfig"
                                                  
 # helm
-abbr "h"=helm
+abbr "h"="helm"
 abbr "hd"="helm delete"
 abbr "hi"="helm install"
 abbr "hs"="helm status"
@@ -50,20 +51,20 @@ abbr "hui"="helm upgrade --install"
 abbr "hun"="helm uninstall"
 
 # opentofu
-abbr "tt"   = 'tofu'
-abbr "tta"  = 'tofu apply'
-abbr "ttaa" = 'tofu apply -auto-approve'
-abbr "ttc"  = 'tofu console'
-abbr "ttd"  = 'tofu destroy'
-abbr "ttd!" = 'tofu destroy -auto-approve'
-abbr "ttf"  = 'tofu fmt'
-abbr "ttfr" = 'tofu fmt -recursive'
-abbr "tti"  = 'tofu init'
-abbr "tto"  = 'tofu output'
-abbr "ttp"  = 'tofu plan'
-abbr "ttv"  = 'tofu validate'
-abbr "tts"  = 'tofu state'
-abbr "ttsh" = 'tofu show'
-abbr "ttr"  = 'tofu refresh'
-abbr "ttt"  = 'tofu test'
-abbr "ttws" = 'tofu workspace'
+abbr "tt"="tofu"
+abbr "tta"="tofu apply"
+abbr "ttaa"="tofu apply -auto-approve"
+abbr "ttc"="tofu console"
+abbr "ttd"="tofu destroy"
+abbr "ttd!"="tofu destroy -auto-approve"
+abbr "ttf"="tofu fmt"
+abbr "ttfr"="tofu fmt -recursive"
+abbr "tti"="tofu init"
+abbr "tto"="tofu output"
+abbr "ttp"="tofu plan"
+abbr "ttv"="tofu validate"
+abbr "tts"="tofu state"
+abbr "ttsh"="tofu show"
+abbr "ttr"="tofu refresh"
+abbr "ttt"="tofu test"
+abbr "ttws"="tofu workspace"
