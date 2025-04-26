@@ -50,7 +50,7 @@
     - k9s
     - opentofu
     - ripgrep
-    - asciicema
+    - asciinema
 
 - name: Get list of installed Homebrew packages with versions
   ansible.builtin.command: brew list --versions
