@@ -65,7 +65,7 @@ The roles are primarily declarative, created according to my personal needs, but
 | [fastfetch](https://formulae.brew.sh/formula/fastfetch)                 | System information tool           | [brew](https://github.com/fastfetch-cli/fastfetch)           | TODO               |
 | [neovim](https://neovim.io/)                                            | Vim-based modern editor           | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
 | [nvchad](https://neovim.io/)                                            | Neovim config framework           | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
-| [tmux](https://neovim.io/)                                              | Terminal multiplexer              | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
+| [tmux](https://neovim.io/)                                              | Terminal multiplexer              | [brew](https://formulae.brew.sh/formula/neovim)              | not working as expected |
 
 ## Getting started
 
