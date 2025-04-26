@@ -97,10 +97,7 @@ my_abbreviation_reminder() {
 autoload -U add-zsh-hook
 add-zsh-hook preexec my_abbreviation_reminder
 
-#################################################
-
-## fzf
-# -- fzf settings --
+# FZF
 export FZF_DEFAULT_OPTS="
   --height=40%
   --layout=reverse
@@ -113,44 +110,22 @@ export FZF_DEFAULT_OPTS="
 zstyle ':completion:*' fzf-tab-cycle yes
 zstyle ':completion:*' fzf-tab-preview ''
 
-# -- Custom key bindings --
 # CTRL-R to search command history with fzf
 bindkey '^R' fzf-history-widget
 
-## --- FZF file selector: Ctrl+Alt+F ---
-#
-## Define a widget function
-#fzf_select_files() {
-#  local selected
-#  selected=$(find . -type f -o -type d \( ! -path '*/\.*' \) | sed 's|^\./||' | \
-#    fzf --prompt="Files> " \
-#        --multi \
-#        --height=80% \
-#        --layout=reverse \
-#        --border \
-#        --preview '
-#          if [[ -n "{}" && -e "{}" ]]; then
-#            [[ -d "{}" ]] && eza -T --color=always "{}" || bat --style=numbers --color=always --line-range=:500 -- "{}"
-#          else
-#            echo "Invalid or empty selection"
-#          fi
-#        ')
-#
-#  # Ensure valid selection before appending to LBUFFER
-#  if [[ -n "$selected" && -e "$selected" ]]; then
-#    LBUFFER+="$selected"
-#  else
-#    echo "No valid selection"
-#  fi
-#}
-#
-## Tell Zsh this is a ZLE widget
-#zle -N fzf_select_files
-#
-## Bind Ctrl+Alt+F to the widget
-#bindkey '^[^F' fzf_select_files
+# Search files
+fzf-file-widget() {
+  local file
+  file=$(fd --type f --hidden --follow --exclude .git | fzf --preview 'bat --style=numbers --color=always {} || cat {}' --height 80% --layout=reverse --border)
+  if [[ -n "$file" ]]; then
+    LBUFFER+="$file"
+  fi
+}
 
-#################################################
+# Register them as widgets
+zle -N fzf-file-widget
+# Bind keys
+bindkey '^[^F' fzf-file-widget
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
