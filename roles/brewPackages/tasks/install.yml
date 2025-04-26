@@ -112,7 +112,6 @@
     neovim_version: "{{ brew_versions.stdout_lines | select('search', '^neovim ') | first | regex_replace('neovim\\s+', '') | default('❌ non installé') }}"
     opentofu_version: "{{ brew_versions.stdout_lines | select('search', '^opentofu ') | first | regex_replace('opentofu\\s+', '') | default('❌ non installé') }}"
     systemd_version: "{{ brew_versions.stdout_lines | select('search', '^systemd ') | first | regex_replace('systemd\\s+', '') | default('❌ non installé') }}"
-    tmux_version: "{{ brew_versions.stdout_lines | select('search', '^tmux ') | first | regex_replace('tmux\\s+', '') | default('❌ non installé') }}"
     unzip_version: "{{ brew_versions.stdout_lines | select('search', '^unzip ') | first | regex_replace('unzip\\s+', '') | default('❌ non installé') }}"
     velero_version: "{{ brew_versions.stdout_lines | select('search', '^velero ') | first | regex_replace('velero\\s+', '') | default('❌ non installé') }}"
     vim_version: "{{ brew_versions.stdout_lines | select('search', '^vim ') | first | regex_replace('vim\\s+', '') | default('❌ non installé') }}"
@@ -181,7 +180,6 @@
       ✨  Neovim         : {{ neovim_version }}
       🌍  Opentofu       : {{ opentofu_version }}
       🛠️  Systemd        : {{ systemd_version }}
-      🔧  Tmux           : {{ tmux_version }}
       📦  Unzip          : {{ unzip_version }}
       🛟  Velero         : {{ velero_version }}
       🐍  Vim            : {{ vim_version }}
