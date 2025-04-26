@@ -1,17 +1,4 @@
 ---
-#- name: Ajouter le chemin de VS Code à PATH dans .bashrc
-#  ansible.builtin.lineinfile:
-#    path: "/home/{{ ansible_env.USER }}/.bashrc"
-#    regexp: '^export PATH=.*VS Code/bin'
-#    line: 'export PATH="$PATH:/mnt/c/Users/Mathod/AppData/Local/Programs/Microsoft VS Code/bin"'
-#    create: yes
-#
-#- name: Recharger le fichier .bashrc pour appliquer les changements
-#  ansible.builtin.shell:
-#    cmd: "bash -c 'source /home/{{ ansible_env.USER }}/.bashrc'"
-#  become: yes
-#  become_user: "{{ ansible_env.USER }}"
-
 - name: Créer les répertoires Helm et Kubectl pour VS Kubernetes
   ansible.builtin.file:
     path: "{{ item }}"

@@ -60,29 +60,6 @@
   tags:
     - versions
 
-#- name: Parse Homebrew versions for each tool
-#  set_fact:
-#    ansible_version: "{{ brew_versions.stdout_lines | select('search', '^ansible ') | first | regex_replace('ansible\\s+', '') | default('❌ non installé') }}"
-#    argocd_version: "{{ brew_versions.stdout_lines | select('search', '^argocd ') | first | regex_replace('argocd\\s+', '') | default('❌ non installé') }}"
-#    awscli_version: "{{ brew_versions.stdout_lines | select('search', '^awscli ') | first | regex_replace('awscli\\s+', '') | default('❌ non installé') }}"
-#    helm_version: "{{ brew_versions.stdout_lines | select('search', '^helm ') | first | regex_replace('helm\\s+', '') | default('❌ non installé') }}"
-#    kind_version: "{{ brew_versions.stdout_lines | select('search', '^kind ') | first | regex_replace('kind\\s+', '') | default('❌ non installé') }}"
-#    bat_version: "{{ brew_versions.stdout_lines | select('search', '^bat ') | first | regex_replace('bat\\s+', '') | default('❌ non installé') }}"
-#    btop_version: "{{ brew_versions.stdout_lines | select('search', '^btop ') | first | regex_replace('btop\\s+', '') | default('❌ non installé') }}"
-#    curl_version: "{{ brew_versions.stdout_lines | select('search', '^curl ') | first | regex_replace('curl\\s+', '') | default('❌ non installé') }}"
-#    fd_version: "{{ brew_versions.stdout_lines | select('search', '^fd ') | first | regex_replace('fd\\s+', '') | default('❌ non installé') }}"
-#    fzf_version: "{{ brew_versions.stdout_lines | select('search', '^fzf ') | first | regex_replace('fzf\\s+', '') | default('❌ non installé') }}"
-#    git_version: "{{ brew_versions.stdout_lines | select('search', '^git ') | first | regex_replace('git\\s+', '') | default('❌ non installé') }}"
-#    krew_version: "{{ brew_versions.stdout_lines | select('search', '^krew ') | first | regex_replace('krew\\s+', '') | default('❌ non installé') }}"
-#    kubectx_version: "{{ brew_versions.stdout_lines | select('search', '^kubectx ') | first | regex_replace('kubectx\\s+', '') | default('❌ non installé') }}"
-#    systemd_version: "{{ brew_versions.stdout_lines | select('search', '^systemd ') | first | regex_replace('systemd\\s+', '') | default('❌ non installé') }}"
-#    unzip_version: "{{ brew_versions.stdout_lines | select('search', '^unzip ') | first | regex_replace('unzip\\s+', '') | default('❌ non installé') }}"
-#    vim_version: "{{ brew_versions.stdout_lines | select('search', '^vim ') | first | regex_replace('vim\\s+', '') | default('❌ non installé') }}"
-#    zellij_version: "{{ brew_versions.stdout_lines | select('search', '^zellij ') | first | regex_replace('zellij\\s+', '') | default('❌ non installé') }}"
-#    kubectl_version: "{{ brew_versions.stdout_lines | select('search', '^kubernetes-cli ') | first | regex_replace('kubernetes-cli\\s+', '') | default('❌ non installé') }}"
-#  tags:
-#    - versions
-
 - name: Parse Homebrew versions for each tool
   set_fact:
     ansible_version: "{{ brew_versions.stdout_lines | select('search', '^ansible ') | first | regex_replace('ansible\\s+', '') | default('❌ non installé') }}"
@@ -122,31 +99,6 @@
     zsh_version: "{{ brew_versions.stdout_lines | select('search', '^zsh ') | first | regex_replace('zsh\\s+', '') | default('❌ non installé') }}"
   tags:
     - versions
-
-#- name: Set version message as a multi-line string
-#  set_fact:
-#    versions_text: |
-#      📦 Pacakges installed :
-#      --------------------------------------------
-#      🐙  ArgoCD  : {{ argocd_version }}
-#      🛳️  Helm    : {{ helm_version }}
-#      🧱  Kind    : {{ kind_version }}
-#      📦  Bat     : {{ bat_version }}
-#      📊  Btop    : {{ btop_version }}
-#      🌊  Curl    : {{ curl_version }}
-#      🐬  Fd      : {{ fd_version }}
-#      🐠  Fzf     : {{ fzf_version }}
-#      🐙  Git     : {{ git_version }}
-#      🧩  Krew    : {{ krew_version }}
-#      🧭  Kubectx : {{ kubectx_version }}
-#      🐋  Kubectl : {{ kubectl_version }}
-#      🛠️  Systemd : {{ systemd_version }}
-#      📦  Unzip   : {{ unzip_version }}
-#      🐍  Vim     : {{ vim_version }}
-#      🧩  Zellij  : {{ zellij_version }}
-#      --------------------------------------------
-#  tags:
-#    - versions
 
 - name: Set version message as a multi-line string
   set_fact:
