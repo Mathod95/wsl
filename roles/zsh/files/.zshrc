@@ -62,16 +62,14 @@ zplug "marlonrichert/zsh-autocomplete"
 zplug "olets/zsh-abbr"
 zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
-#zplug "Aloxaf/fzf-tab"
-#zplug "joshskidmore/zsh-fzf-history-search"
+zplug "Aloxaf/fzf-tab"
+zplug "joshskidmore/zsh-fzf-history-search"
 
 if ! zplug check; then
     echo "Missing plugins detected. Installing..."
     zplug install
     echo "Plugins installed."
 fi
-
-zplug load
 
 # ABBR https://zsh-abbr.olets.dev/configuration-variables.html
 ABBR_EXPAND_PUSH_ABBREVIATION_TO_HISTORY=0
@@ -129,3 +127,5 @@ bindkey '^[^F' fzf-file-widget
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+zplug load
