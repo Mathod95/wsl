@@ -51,6 +51,7 @@
     - opentofu
     - ripgrep
     - asciinema
+    - argocd-autopilot
 
 - name: Get list of installed Homebrew packages with versions
   ansible.builtin.command: brew list --versions
