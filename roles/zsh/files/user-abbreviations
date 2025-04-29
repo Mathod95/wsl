@@ -21,9 +21,10 @@ abbr ".."="cd .."
 abbr "..."="cd ../.."
 
 # ls
-abbr "la"="eza -la --icons"
-abbr "ls"="eza -a --icons"
+abbr "ll"="eza -la --icons"
+abbr "ls"="eza --icons"
 abbr "tree"="eza -T"
+abbr "la"="eza -a --icons"
 
 # shell
 abbr "szshrc"="source ~/.zshrc"
@@ -38,6 +39,7 @@ abbr "kidc"="kind delete cluster"
 abbr "kidcn"="kind delete cluster --name"
 abbr "kidca"="kind delete clusters -A"
 abbr "kigk"="kind get kubeconfig"
+abbr "kidca"=""
                                                  
 # helm
 abbr "h"="helm"
