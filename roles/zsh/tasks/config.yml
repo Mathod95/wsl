@@ -117,3 +117,18 @@
     src: dracula.kdl
     dest: "{{ ansible_env.HOME }}/.config/zellij/themes/dracula.kdl"
     mode: '0644'
+
+- name: Install fzf.fish plugin
+  ansible.builtin.shell:
+    cmd: "fish -c 'fisher install PatrickF1/fzf.fish'"
+    executable: /bin/bash  # Executes the command in Fish shell
+
+- name: Install puffer-fish plugin
+  ansible.builtin.shell:
+    cmd: "fish -c 'fisher install nickeb96/puffer-fish'"
+    executable: /bin/bash  # Executes the command in Fish shell
+
+- name: Install fish-abbreviation-tips plugin
+  ansible.builtin.shell:
+    cmd: "fish -c 'fisher install Gazorby/fish-abbreviation-tips'"
+    executable: /bin/bash  # Executes the command in Fish shell
