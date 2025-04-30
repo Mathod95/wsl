@@ -132,3 +132,13 @@
   ansible.builtin.shell:
     cmd: "fish -c 'fisher install Gazorby/fish-abbreviation-tips'"
     executable: /bin/bash  # Executes the command in Fish shell
+
+- name: Install tide@v6 plugin
+  ansible.builtin.shell:
+    cmd: "fish -c 'fisher install IlanCosman/tide@v6'"
+    executable: /bin/bash  # Executes the command in Fish shell
+
+- name: command tide
+  ansible.builtin.shell:
+    cmd: "fish -c 'tide configure --auto --style=Rainbow --prompt_colors='16 colors' --show_time='24-hour format' --rainbow_prompt_separators=Slanted --powerline_prompt_heads=Slanted --powerline_prompt_tails=Flat --powerline_prompt_style='Two lines, character' --prompt_connection=Disconnected --powerline_right_prompt_frame=No --prompt_spacing=Sparse --icons='Many icons' --transient=Yes'"
+    executable: /bin/bash  # Executes the command in Fish shell
