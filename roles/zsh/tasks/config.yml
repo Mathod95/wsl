@@ -5,58 +5,87 @@
   register: brew_analytics_result
   changed_when: false
 
-- name: Ajouter zsh Shell à la liste des shells valides
+#- name: Ajouter zsh Shell à la liste des shells valides
+#  ansible.builtin.lineinfile:
+#    path: /etc/shells
+#    line: "/home/linuxbrew/.linuxbrew/bin/zsh"
+#    create: yes
+#  become: true
+
+- name: Ajouter fish Shell à la liste des shells valides
   ansible.builtin.lineinfile:
     path: /etc/shells
-    line: "/home/linuxbrew/.linuxbrew/bin/zsh"
+    line: "/home/linuxbrew/.linuxbrew/bin/fish"
     create: yes
   become: true
+
+#- name: Change default shell to zsh if it's not already set
+#  ansible.builtin.shell: |
+#    current_shell=$(getent passwd {{ ansible_env.USER }} | cut -d: -f7)
+#    if [ "$current_shell" != "/home/linuxbrew/.linuxbrew/bin/zsh" ]; then
+#      chsh -s /home/linuxbrew/.linuxbrew/bin/zsh {{ ansible_env.USER }}
+#    fi
+#  become: true
+#  register: result
+#  changed_when: "'chsh' in result.stdout"
 
 - name: Change default shell to zsh if it's not already set
   ansible.builtin.shell: |
     current_shell=$(getent passwd {{ ansible_env.USER }} | cut -d: -f7)
-    if [ "$current_shell" != "/home/linuxbrew/.linuxbrew/bin/zsh" ]; then
-      chsh -s /home/linuxbrew/.linuxbrew/bin/zsh {{ ansible_env.USER }}
+    if [ "$current_shell" != "/home/linuxbrew/.linuxbrew/bin/fish" ]; then
+      chsh -s /home/linuxbrew/.linuxbrew/bin/fish {{ ansible_env.USER }}
     fi
   become: true
   register: result
   changed_when: "'chsh' in result.stdout"
 
-- name: Copy .zshrc
-  ansible.builtin.copy:
-    src: .zshrc
-    dest: "{{ ansible_env.HOME }}/.zshrc"
-    mode: '0644'
+#- name: Copy .zshrc
+#  ansible.builtin.copy:
+#    src: .zshrc
+#    dest: "{{ ansible_env.HOME }}/.zshrc"
+#    mode: '0644'
 
-- name: Copy .zshrc
-  ansible.builtin.copy:
-    src: .histfile
-    dest: "{{ ansible_env.HOME }}/.histfile"
-    mode: '0600'
+#- name: Copy .zshrc
+#  ansible.builtin.copy:
+#    src: .histfile
+#    dest: "{{ ansible_env.HOME }}/.histfile"
+#    mode: '0600'
 
-- name: Ensure ~/config/zsh-abbr directory exists with correct permissions
+#- name: Ensure ~/config/zsh-abbr directory exists with correct permissions
+#  ansible.builtin.file:
+#    path: "{{ ansible_env.HOME }}/.config/zsh-abbr"
+#    state: directory
+#    mode: '0755'
+
+- name: Ensure ~/config/fish directory exists with correct permissions
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/zsh-abbr"
+    path: "{{ ansible_env.HOME }}/.config/fish"
     state: directory
     mode: '0755'
 
-- name: Copy user-abbreviations
+- name: Copy config.fish
   ansible.builtin.copy:
-    src: user-abbreviations
-    dest: "{{ ansible_env.HOME }}/.config/zsh-abbr/user-abbreviations"
+    src: config.fish
+    dest: "{{ ansible_env.HOME }}/.config/fish/config.fish"
     mode: '0600'
 
-- name: Copy .vimrc
-  ansible.builtin.copy:
-    src: .vimrc
-    dest: "{{ ansible_env.HOME }}/.vimrc"
-    mode: '0644'
+#- name: Copy user-abbreviations
+#  ansible.builtin.copy:
+#    src: user-abbreviations
+#    dest: "{{ ansible_env.HOME }}/.config/zsh-abbr/user-abbreviations"
+#    mode: '0600'
 
-- name: Copy .p10k.zsh
-  ansible.builtin.copy:
-    src: .p10k.zsh
-    dest: "{{ ansible_env.HOME }}/.p10k.zsh"
-    mode: '0644'
+#- name: Copy .vimrc
+#  ansible.builtin.copy:
+#    src: .vimrc
+#    dest: "{{ ansible_env.HOME }}/.vimrc"
+#    mode: '0644'
+
+#- name: Copy .p10k.zsh
+#  ansible.builtin.copy:
+#    src: .p10k.zsh
+#    dest: "{{ ansible_env.HOME }}/.p10k.zsh"
+#    mode: '0644'
 
 - name: Copy wsl.conf
   ansible.builtin.copy:
