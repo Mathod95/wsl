@@ -1,18 +1,4 @@
 ---
-#- name: Ajouter zsh Shell à la liste des shells valides
-#  ansible.builtin.lineinfile:
-#    path: /etc/shells
-#    line: "/home/linuxbrew/.linuxbrew/bin/zsh"
-#    create: yes
-#  become: true
-
-#- name: Ajouter fish Shell à la liste des shells valides
-#  ansible.builtin.lineinfile:
-#    path: /etc/shells
-#    line: "/home/linuxbrew/.linuxbrew/bin/fish"
-#    create: yes
-#  become: true
-
 - name: Ajouter zsh Shell à la liste des shells valides
   ansible.builtin.lineinfile:
     path: /etc/shells
@@ -30,51 +16,35 @@
   register: result
   changed_when: "'chsh' in result.stdout"
 
-#- name: Change default shell to zsh if it's not already set
-#  ansible.builtin.shell: |
-#    current_shell=$(getent passwd {{ ansible_env.USER }} | cut -d: -f7)
-#    if [ "$current_shell" != "/home/linuxbrew/.linuxbrew/bin/fish" ]; then
-#      chsh -s /home/linuxbrew/.linuxbrew/bin/fish {{ ansible_env.USER }}
-#    fi
-#  become: true
-#  register: result
-#  changed_when: "'chsh' in result.stdout"
+- name: Install Zinit with bash and curl
+  ansible.builtin.shell: >
+    bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+  args:
+    executable: /bin/bash
 
-#- name: Copy .zshrc
-#  ansible.builtin.copy:
-#    src: .zshrc
-#    dest: "{{ ansible_env.HOME }}/.zshrc"
-#    mode: '0644'
+- name: Copy .zshrc
+  ansible.builtin.copy:
+    src: .zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    mode: '0644'
 
-#- name: Copy .zshrc
-#  ansible.builtin.copy:
-#    src: .histfile
-#    dest: "{{ ansible_env.HOME }}/.histfile"
-#    mode: '0600'
+- name: Copy .histfile
+  ansible.builtin.copy:
+    src: .histfile
+    dest: "{{ ansible_env.HOME }}/.histfile"
+    mode: '0600'
 
-#- name: Ensure ~/config/zsh-abbr directory exists with correct permissions
-#  ansible.builtin.file:
-#    path: "{{ ansible_env.HOME }}/.config/zsh-abbr"
-#    state: directory
-#    mode: '0755'
+- name: Ensure ~/config/zsh-abbr directory exists with correct permissions
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/zsh-abbr"
+    state: directory
+    mode: '0755'
 
-#- name: Ensure ~/config/fish directory exists with correct permissions
-#  ansible.builtin.file:
-#    path: "{{ ansible_env.HOME }}/.config/fish"
-#    state: directory
-#    mode: '0755'
-
-#- name: Copy config.fish
-#  ansible.builtin.copy:
-#    src: config.fish
-#    dest: "{{ ansible_env.HOME }}/.config/fish/config.fish"
-#    mode: '0600'
-
-#- name: Copy user-abbreviations
-#  ansible.builtin.copy:
-#    src: user-abbreviations
-#    dest: "{{ ansible_env.HOME }}/.config/zsh-abbr/user-abbreviations"
-#    mode: '0600'
+- name: Copy user-abbreviations
+  ansible.builtin.copy:
+    src: user-abbreviations
+    dest: "{{ ansible_env.HOME }}/.config/zsh-abbr/user-abbreviations"
+    mode: '0600'
 
 #- name: Copy .vimrc
 #  ansible.builtin.copy:
@@ -82,11 +52,11 @@
 #    dest: "{{ ansible_env.HOME }}/.vimrc"
 #    mode: '0644'
 
-#- name: Copy .p10k.zsh
-#  ansible.builtin.copy:
-#    src: .p10k.zsh
-#    dest: "{{ ansible_env.HOME }}/.p10k.zsh"
-#    mode: '0644'
+- name: Copy .p10k.zsh
+  ansible.builtin.copy:
+    src: .p10k.zsh
+    dest: "{{ ansible_env.HOME }}/.p10k.zsh"
+    mode: '0644'
 
 - name: Copy wsl.conf
   ansible.builtin.copy:
@@ -107,39 +77,14 @@
     state: directory
     mode: '0755'
 
-#- name: Copy config.kdl
-#  ansible.builtin.copy:
-#    src: config.kdl
-#    dest: "{{ ansible_env.HOME }}/.config/zellij/config.kdl"
-#    mode: '0644'
+- name: Copy config.kdl
+  ansible.builtin.copy:
+    src: config.kdl
+    dest: "{{ ansible_env.HOME }}/.config/zellij/config.kdl"
+    mode: '0644'
 
 - name: Copy dracula.kdl
   ansible.builtin.copy:
     src: dracula.kdl
     dest: "{{ ansible_env.HOME }}/.config/zellij/themes/dracula.kdl"
     mode: '0644'
-
-#- name: Install fzf.fish plugin
-#  ansible.builtin.shell:
-#    cmd: "fish -c 'fisher install PatrickF1/fzf.fish'"
-#    executable: /bin/bash  # Executes the command in Fish shell
-#
-#- name: Install puffer-fish plugin
-#  ansible.builtin.shell:
-#    cmd: "fish -c 'fisher install nickeb96/puffer-fish'"
-#    executable: /bin/bash  # Executes the command in Fish shell
-#
-#- name: Install fish-abbreviation-tips plugin
-#  ansible.builtin.shell:
-#    cmd: "fish -c 'fisher install Gazorby/fish-abbreviation-tips'"
-#    executable: /bin/bash  # Executes the command in Fish shell
-#
-#- name: Install tide@v6 plugin
-#  ansible.builtin.shell:
-#    cmd: "fish -c 'fisher install IlanCosman/tide@v6'"
-#    executable: /bin/bash  # Executes the command in Fish shell
-#
-#- name: command tide
-#  ansible.builtin.shell:
-#    cmd: "fish -c 'tide configure --auto --style=Rainbow --prompt_colors='16 colors' --show_time='24-hour format' --rainbow_prompt_separators=Slanted --powerline_prompt_heads=Slanted --powerline_prompt_tails=Flat --powerline_prompt_style='Two lines, character' --prompt_connection=Disconnected --powerline_right_prompt_frame=No --prompt_spacing=Sparse --icons='Many icons' --transient=Yes'"
-#    executable: /bin/bash  # Executes the command in Fish shell

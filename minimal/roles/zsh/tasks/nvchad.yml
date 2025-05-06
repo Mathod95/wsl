@@ -1,44 +1,44 @@
-#- name: Remove existing Neovim config
-#  ansible.builtin.file:
-#    path: "{{ ansible_env.HOME }}/.config/nvim"
-#    state: absent
-#
-#- name: Clone NvChad starter repository
-#  ansible.builtin.shell:
-#    cmd: git clone https://github.com/NvChad/starter ~/.config/nvim
-#    creates: "{{ ansible_env.HOME }}/.config/nvim"
-#
-#- name: Remove .git folder from NvChad
-#  ansible.builtin.file:
-#    path: "{{ ansible_env.HOME }}/.config/nvim/.git"
-#    state: absent
-#
-#- name: Sync plugins with Lazy.nvim
-#  ansible.builtin.shell: nvim --headless "+Lazy! sync" +qa
-#  args:
-#    executable: /bin/bash
-#  environment:
-#    HOME: "{{ ansible_env.HOME }}"
-#
-#- name: Sleep to allow Lazy.nvim plugin install to settle
-#  ansible.builtin.pause:
-#    seconds: 5
-#
-#- name: Install all Mason tools
-#  ansible.builtin.shell: nvim --headless "+MasonInstallAll" +qa
-#  args:
-#    executable: /bin/bash
-#  environment:
-#    HOME: "{{ ansible_env.HOME }}"
-#
-#- name: Copy mappings.lua
-#  ansible.builtin.copy:
-#    src: mappings.lua
-#    dest: "{{ ansible_env.HOME }}/.config/nvim/lua/mappings.lua"
-#    mode: '0644'
-#
-#- name: Copy chadrc.lua
-#  ansible.builtin.copy:
-#    src: chadrc.lua
-#    dest: "{{ ansible_env.HOME }}/.config/nvim/lua/chadrc.lua"
-#    mode: '0644'
+- name: Remove existing Neovim config
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/nvim"
+    state: absent
+
+- name: Clone NvChad starter repository
+  ansible.builtin.shell:
+    cmd: git clone https://github.com/NvChad/starter ~/.config/nvim
+    creates: "{{ ansible_env.HOME }}/.config/nvim"
+
+- name: Remove .git folder from NvChad
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/nvim/.git"
+    state: absent
+
+- name: Sync plugins with Lazy.nvim
+  ansible.builtin.shell: nvim --headless "+Lazy! sync" +qa
+  args:
+    executable: /bin/bash
+  environment:
+    HOME: "{{ ansible_env.HOME }}"
+
+- name: Sleep to allow Lazy.nvim plugin install to settle
+  ansible.builtin.pause:
+    seconds: 5
+
+- name: Install all Mason tools
+  ansible.builtin.shell: nvim --headless "+MasonInstallAll" +qa
+  args:
+    executable: /bin/bash
+  environment:
+    HOME: "{{ ansible_env.HOME }}"
+
+- name: Copy mappings.lua
+  ansible.builtin.copy:
+    src: mappings.lua
+    dest: "{{ ansible_env.HOME }}/.config/nvim/lua/mappings.lua"
+    mode: '0644'
+
+- name: Copy chadrc.lua
+  ansible.builtin.copy:
+    src: chadrc.lua
+    dest: "{{ ansible_env.HOME }}/.config/nvim/lua/chadrc.lua"
+    mode: '0644'
