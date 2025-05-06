@@ -1,0 +1,43 @@
+---
+- name: Créer les répertoires Helm et Kubectl pour VS Kubernetes
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+    recurse: yes
+  loop:
+    - "/home/{{ ansible_env.USER }}/.local/state/vs-kubernetes/tools/helm/linux-amd64"
+    - "/home/{{ ansible_env.USER }}/.local/state/vs-kubernetes/tools/kubectl"
+
+- name: Copier helm dans le dossier vs-kubernetes
+  ansible.builtin.copy:
+    src: /home/linuxbrew/.linuxbrew/bin/helm
+    dest: "/home/{{ ansible_env.USER }}/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm"
+    mode: '0755'
+    remote_src: yes
+
+- name: Copier kubectl dans le dossier vs-kubernetes
+  ansible.builtin.copy:
+    src: /home/linuxbrew/.linuxbrew/bin/kubectl
+    dest: "/home/{{ ansible_env.USER }}/.local/state/vs-kubernetes/tools/kubectl/kubectl"
+    mode: '0755'
+    remote_src: yes
+
+- name: Installer les extensions VS Code nécessaires
+  ansible.builtin.shell: "code --install-extension {{ item }} --force"
+  loop:
+    - ms-kubernetes-tools.vscode-kubernetes-tools
+    - ms-kubernetes-tools.kind-vscode
+    - ms-azuretools.vscode-docker
+    - github.copilot-chat
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/mnt/c/Users/{{ ansible_env.USER }}/AppData/Local/Programs/Microsoft\ VS\ Code/bin"
+  args:
+    executable: /bin/bash
+
+- name: Ensure code symlink is available globally
+  ansible.builtin.file:
+    src: "/mnt/c/Users/Mathod/AppData/Local/Programs/Microsoft VS Code/bin/code"
+    dest: "/usr/local/bin/code"
+    state: link
+  become: true

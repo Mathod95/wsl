@@ -7,12 +7,12 @@
 
 # PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
-source $ZPLUG_HOME/init.zsh
+#export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
+#source $ZPLUG_HOME/init.zsh
 export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
 eval "$(zellij setup --generate-auto-start zsh)"
 
-# Update terminal/pane title like Fish
+# Update terminal/pane
 function preexec() {
   print -Pn "\e]0;$1 %~\a"
 }
@@ -44,7 +44,7 @@ alias ls="eza -a --icons"
 alias szshrc="source ~/.zshrc"
 alias tree="eza -T"
 alias zshrc="vim ~/.zshrc"
-compdef kubecolor=kubectl
+#compdef kubecolor=kubectl
 
 # HISTORY
 HISTFILE=~/.histfile
@@ -66,75 +66,75 @@ setopt CORRECT # corriger les fautes de frappe sur les commandes
 setopt AUTO_CD # cd juste avec le nom du dossier
 
 # ZPLUG
-zplug "zsh-users/zsh-autosuggestions"
-zplug "marlonrichert/zsh-autocomplete"
-zplug "olets/zsh-abbr"
-zplug "zdharma-continuum/fast-syntax-highlighting"
-zplug "romkatv/powerlevel10k", as:theme, depth:1
-zplug "Aloxaf/fzf-tab"
-zplug "joshskidmore/zsh-fzf-history-search"
-
-if ! zplug check; then
-    echo "Missing plugins detected. Installing..."
-    zplug install
-    echo "Plugins installed."
-fi
+#zplug "zsh-users/zsh-autosuggestions"
+#zplug "marlonrichert/zsh-autocomplete"
+#zplug "olets/zsh-abbr"
+#zplug "zdharma-continuum/fast-syntax-highlighting"
+#zplug "romkatv/powerlevel10k", as:theme, depth:1
+#zplug "Aloxaf/fzf-tab"
+#zplug "joshskidmore/zsh-fzf-history-search"
+#
+#if ! zplug check; then
+#    echo "Missing plugins detected. Installing..."
+#    zplug install
+#    echo "Plugins installed."
+#fi
 
 # ABBR https://zsh-abbr.olets.dev/configuration-variables.html
-ABBR_EXPAND_PUSH_ABBREVIATION_TO_HISTORY=0
-ABBR_SET_EXPANSION_CURSOR=1
-ABBR_EXPANSION_CURSOR_MARKER=%
-ABBR_SET_LINE_CURSOR=1
-ABBR_GET_AVAILABLE_ABBREVIATION=1
-ABBR_LOG_AVAILABLE_ABBREVIATION=0                                                                                                                                    
+#ABBR_EXPAND_PUSH_ABBREVIATION_TO_HISTORY=0
+#ABBR_SET_EXPANSION_CURSOR=1
+#ABBR_EXPANSION_CURSOR_MARKER=%
+#ABBR_SET_LINE_CURSOR=1
+#ABBR_GET_AVAILABLE_ABBREVIATION=1
+#ABBR_LOG_AVAILABLE_ABBREVIATION=0                                                                                                                                    
 
 # Define the reminder function with custom colors
-my_abbreviation_reminder() {
-  if [[ -n "$ABBR_UNUSED_ABBREVIATION" ]]; then
-    # Set color codes
-    local red="\e[31m"
-    local reset="\e[0m"  # Reset color back to normal
+#my_abbreviation_reminder() {
+#  if [[ -n "$ABBR_UNUSED_ABBREVIATION" ]]; then
+#    # Set color codes
+#    local red="\e[31m"
+#    local reset="\e[0m"  # Reset color back to normal
+#
+#    # Display the custom reminder with proper colors
+#    echo -e "Reminder: You could have used the abbreviation '${red}$ABBR_UNUSED_ABBREVIATION${reset}' for '${red}$ABBR_UNUSED_ABBREVIATION_EXPANSION${reset}'."
+#  fi
+#}
+#
+## Add the function to the preexec hook to run before each command
+#autoload -U add-zsh-hook
+#add-zsh-hook preexec my_abbreviation_reminder
 
-    # Display the custom reminder with proper colors
-    echo -e "Reminder: You could have used the abbreviation '${red}$ABBR_UNUSED_ABBREVIATION${reset}' for '${red}$ABBR_UNUSED_ABBREVIATION_EXPANSION${reset}'."
-  fi
-}
+## FZF
+#export FZF_DEFAULT_OPTS="
+#  --height=40%
+#  --layout=reverse
+#  --border
+#  --info=inline
+#  --color=bg+:24
+#"
+#
+## -- fzf-tab specific settings --
+#zstyle ':completion:*' fzf-tab-cycle yes
+#zstyle ':completion:*' fzf-tab-preview ''
+#
+## CTRL-R to search command history with fzf
+#bindkey '^R' fzf-history-widget
+#
+## Search files
+#fzf-file-widget() {
+#  local file
+#  file=$(fd --type f --hidden --follow --exclude .git | fzf --preview 'bat --style=numbers --color=always {} || cat {}' --height 80% --layout=reverse --border)
+#  if [[ -n "$file" ]]; then
+#    LBUFFER+="$file"
+#  fi
+#}
+#
+## Register them as widgets
+#zle -N fzf-file-widget
+## Bind keys
+#bindkey '^[^F' fzf-file-widget
 
-# Add the function to the preexec hook to run before each command
-autoload -U add-zsh-hook
-add-zsh-hook preexec my_abbreviation_reminder
-
-# FZF
-export FZF_DEFAULT_OPTS="
-  --height=40%
-  --layout=reverse
-  --border
-  --info=inline
-  --color=bg+:24
-"
-
-# -- fzf-tab specific settings --
-zstyle ':completion:*' fzf-tab-cycle yes
-zstyle ':completion:*' fzf-tab-preview ''
-
-# CTRL-R to search command history with fzf
-bindkey '^R' fzf-history-widget
-
-# Search files
-fzf-file-widget() {
-  local file
-  file=$(fd --type f --hidden --follow --exclude .git | fzf --preview 'bat --style=numbers --color=always {} || cat {}' --height 80% --layout=reverse --border)
-  if [[ -n "$file" ]]; then
-    LBUFFER+="$file"
-  fi
-}
-
-# Register them as widgets
-zle -N fzf-file-widget
-# Bind keys
-bindkey '^[^F' fzf-file-widget
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-zplug load
+## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#
+#zplug load

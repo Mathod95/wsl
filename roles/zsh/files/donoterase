@@ -1,0 +1,36 @@
+❯ cat kubecolor.fish
+function __fzf_kubecolor_top_commands
+  # Get available kubectl subcommands from help
+  kubectl --help | awk '/^  [a-z]/ {print $1}' | fzf --exit-0
+end
+
+# Show top-level commands when nothing is typed yet
+complete -c kubecolor -n "not __fish_seen_subcommand_from get describe delete" -f -a "(__fzf_kubecolor_top_commands)"
+
+function __fzf_kubecolor_top_commands
+  # Get subcommands from help
+  kubectl --help | awk '/^  [a-z]/ {print $1}' | fzf --exit-0
+end
+
+function __fzf_kubecolor_complete
+  set -l cmd (commandline -opc)
+  set -l args (string split ' ' $cmd)
+
+  if test (count $args) -eq 2
+    kubectl api-resources --verbs=list -o name | fzf --exit-0
+  else if test (count $args) -eq 3
+    set -l resource_type (string lower -- $args[3])
+    kubectl get $resource_type --no-headers -o custom-columns=":metadata.name" 2>/dev/null | fzf --exit-0
+  end
+end
+
+# Clear all previous completions
+complete -c kubecolor -e
+
+# Top-level commands (get, describe, delete, etc.)
+complete -c kubecolor -n "not __fish_seen_subcommand_from get describe delete" -f -a "(__fzf_kubecolor_top_commands)"
+
+# Resource + object name completion
+for subcommand in get describe delete
+    complete -c kubecolor -n "__fish_seen_subcommand_from $subcommand" -f -a "(__fzf_kubecolor_complete)"
+end

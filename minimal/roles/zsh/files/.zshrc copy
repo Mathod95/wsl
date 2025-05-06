@@ -12,7 +12,7 @@ source $ZPLUG_HOME/init.zsh
 export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
 eval "$(zellij setup --generate-auto-start zsh)"
 
-# Update terminal/pane title like Fish
+# Update terminal/pane
 function preexec() {
   print -Pn "\e]0;$1 %~\a"
 }
