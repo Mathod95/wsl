@@ -5,54 +5,50 @@
   register: brew_analytics_result
   changed_when: false
 
-- name: Tap olets/tap
-  community.general.homebrew_tap:
-    name: olets/tap
-    state: present
-
 - name: Install {{ item }} via Homebrew
   community.general.homebrew:
     name: "{{ item }}"
     state: present
   loop:
     - ansible
-    - kubectl
     - argocd
-    - docker
-    - keychain
-    - curl
-    - wget
-    - git
-    - vim
-    - systemd
+    - argocd-autopilot
+    - asciinema
+    - awscli
     - bat
-    - kube-score
+    - btop
+    - cilium-cli
+    - cloud-provider-kind
+    - crossplane
+    - curl
+    - docker
+    - eza
+    - fastfetch
     - fd
     - fzf
-    - btop
+    - git
     - helm
+    - k9s
+    - keychain
     - kind
-    - krew
-    - kubectx
-    - zellij
-    - crossplane
-    - awscli
+    - kube-linter
+    - kube-score
     - kubecolor
-    - cilium-cli
+    - kubectl
+    - kubeescape
+    - kubectx
+    - krew
     - kustomize
     - kyverno
-    - velero
-    - eza
-    - cloud-provider-kind
-    - zsh
-    - zplug
-    - olets/tap/zsh-abbr
     - neovim
-    - k9s
     - opentofu
     - ripgrep
-    - asciinema
-    - argocd-autopilot
+    - systemd
+    - velero
+    - vim
+    - wget
+    - zellij
+    - zsh
 
 - name: Get list of installed Homebrew packages with versions
   ansible.builtin.command: brew list --versions
@@ -96,8 +92,6 @@
     vim_version: "{{ brew_versions.stdout_lines | select('search', '^vim ') | first | regex_replace('vim\\s+', '') | default('❌ non installé') }}"
     wget_version: "{{ brew_versions.stdout_lines | select('search', '^wget ') | first | regex_replace('wget\\s+', '') | default('❌ non installé') }}"
     zellij_version: "{{ brew_versions.stdout_lines | select('search', '^zellij ') | first | regex_replace('zellij\\s+', '') | default('❌ non installé') }}"
-    zplug_version: "{{ brew_versions.stdout_lines | select('search', '^zplug ') | first | regex_replace('zplug\\s+', '') | default('❌ non installé') }}"
-    zsh_abbr_version: "{{ brew_versions.stdout_lines | select('search', '^zsh-abbr ') | first | regex_replace('zsh-abbr\\s+', '') | default('❌ non installé') }}"
     zsh_version: "{{ brew_versions.stdout_lines | select('search', '^zsh ') | first | regex_replace('zsh\\s+', '') | default('❌ non installé') }}"
   tags:
     - versions

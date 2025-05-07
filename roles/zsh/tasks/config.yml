@@ -40,12 +40,6 @@
     dest: "{{ ansible_env.HOME }}/.config/zsh-abbr/user-abbreviations"
     mode: '0600'
 
-#- name: Copy .vimrc
-#  ansible.builtin.copy:
-#    src: .vimrc
-#    dest: "{{ ansible_env.HOME }}/.vimrc"
-#    mode: '0644'
-
 - name: Copy .p10k.zsh
   ansible.builtin.copy:
     src: .p10k.zsh
