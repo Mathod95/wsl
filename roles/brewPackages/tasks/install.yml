@@ -43,12 +43,10 @@
     - kyverno
     - velero
     - eza
-    - fish
-    - fisher
     - cloud-provider-kind
-    #- zsh
-    #- zplug
-    #- olets/tap/zsh-abbr
+    - zsh
+    - zplug
+    - olets/tap/zsh-abbr
     - neovim
     - k9s
     - opentofu
@@ -98,9 +96,9 @@
     vim_version: "{{ brew_versions.stdout_lines | select('search', '^vim ') | first | regex_replace('vim\\s+', '') | default('❌ non installé') }}"
     wget_version: "{{ brew_versions.stdout_lines | select('search', '^wget ') | first | regex_replace('wget\\s+', '') | default('❌ non installé') }}"
     zellij_version: "{{ brew_versions.stdout_lines | select('search', '^zellij ') | first | regex_replace('zellij\\s+', '') | default('❌ non installé') }}"
-    #zplug_version: "{{ brew_versions.stdout_lines | select('search', '^zplug ') | first | regex_replace('zplug\\s+', '') | default('❌ non installé') }}"
-    #zsh_abbr_version: "{{ brew_versions.stdout_lines | select('search', '^zsh-abbr ') | first | regex_replace('zsh-abbr\\s+', '') | default('❌ non installé') }}"
-    #zsh_version: "{{ brew_versions.stdout_lines | select('search', '^zsh ') | first | regex_replace('zsh\\s+', '') | default('❌ non installé') }}"
+    zplug_version: "{{ brew_versions.stdout_lines | select('search', '^zplug ') | first | regex_replace('zplug\\s+', '') | default('❌ non installé') }}"
+    zsh_abbr_version: "{{ brew_versions.stdout_lines | select('search', '^zsh-abbr ') | first | regex_replace('zsh-abbr\\s+', '') | default('❌ non installé') }}"
+    zsh_version: "{{ brew_versions.stdout_lines | select('search', '^zsh ') | first | regex_replace('zsh\\s+', '') | default('❌ non installé') }}"
   tags:
     - versions
 
@@ -150,7 +148,3 @@
     msg: "{{ versions_text.splitlines() }}"
   tags:
     - versions
-
-#🔌  Zplug          : {{ zplug_version }}
-#💻  Zsh            : {{ zsh_version }}
-#🔤  Zsh-Abbr       : {{ zsh_abbr_version }}
