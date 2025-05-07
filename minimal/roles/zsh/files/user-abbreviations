@@ -32,14 +32,13 @@ abbr "zshrc"="vim ~/.zshrc"
 
 # kind
 abbr "kicc"="kind create cluster"
-abbr "kiccn"="kind create cluster"
+abbr "kiccn"="kind create cluster --name %"
 abbr "kigc"="kind get clusters"
 abbr "kign"="kind get nodes"
 abbr "kidc"="kind delete cluster"
-abbr "kidcn"="kind delete cluster --name"
+abbr "kidcn"="kind delete cluster --name %"
 abbr "kidca"="kind delete clusters -A"
 abbr "kigk"="kind get kubeconfig"
-abbr "kidca"=""
                                                  
 # helm
 abbr "h"="helm"

@@ -18,7 +18,7 @@ The roles are primarily declarative, created according to my personal needs, but
 
 ## Features
 | name                                                                    | description                       | method                                                       | status             |
-|-------------------------------------------------------------------------|-------------                      |--------------------------------------------------------------|--------------------|
+|-------------------------------------------------------------------------|-----------------------------------|--------------------------------------------------------------|--------------------|
 | bootstrap                                                               |                                   | bash                                                         | TODO               |
 | ssh                                                                     |                                   | ansible                                                      | TODO               |
 | docker                                                                  | Container engine                  | [brew](https://formulae.brew.sh/formula/)                    | :white_check_mark: |
@@ -43,7 +43,7 @@ The roles are primarily declarative, created according to my personal needs, but
 | [kubectx](https://github.com/ahmetb/kubectx)                            | Context switcher for kubectl      | [brew](https://formulae.brew.sh/formula/kubectx)             | :white_check_mark: |
 | [zellij](https://github.com/zellij-org/zellij)                          | Terminal workspace                | [brew](https://formulae.brew.sh/formula/zellij)              | :white_check_mark: |
 | [keychain](https://github.com/funtoo/keychain)                          | Manage SSH keys                   | [brew](https://formulae.brew.sh/formula/keychain)            | :white_check_mark: |
-| wget                                                                    | Download utility                  | [brew](https://formulae.brew.sh/formula/wget)                | :white_check_mark: |
+| [wget](https://github.com/mirror/wget)                                  | Download utility                  | [brew](https://formulae.brew.sh/formula/wget)                | :white_check_mark: |
 | [k9s](https://github.com/derailed/k9s)                                  | K8s terminal UI                   | [brew](https://formulae.brew.sh/formula/k9s)                 | :white_check_mark: |
 | [tlrc](https://github.com/tldr-pages/tlrc)                              | TLDR command viewer               | [brew](https://formulae.brew.sh/formula/tlrc)                | :white_check_mark: |
 | [eza](https://github.com/eza-community/eza)                             | Modern `ls` replacement           | [brew](https://formulae.brew.sh/formula/eza)                 | :white_check_mark: |
@@ -60,12 +60,12 @@ The roles are primarily declarative, created according to my personal needs, but
 | [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)   | Fast, simple Zsh autocomplete     | [brew](https://formulae.brew.sh/formula/zsh-autocomplete)    | :white_check_mark: |
 | [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) | Zsh syntax highlighting           | [brew](https://formulae.brew.sh/formula/zsh-f-sy-h)          | :white_check_mark: |
 | [powerlevel10k](https://github.com/romkatv/powerlevel10k)               | Zsh powerlines                    | [zplug]()                                                    | :white_check_mark: |
-| [kubescape](https://github.com/kubescape/kubescape)                     | Kubernetes security scanner       | [brew]()                                                     | TODO               |
-| [kube-linter](https://github.com/stackrox/kube-linter)                  | Linter for Kubernetes YAML        | [brew]()                                                     | TODO               |
-| [fastfetch](https://formulae.brew.sh/formula/fastfetch)                 | System information tool           | [brew](https://github.com/fastfetch-cli/fastfetch)           | TODO               |
+| [kubescape](https://github.com/kubescape/kubescape)                     | Kubernetes security scanner       | [brew](https://formulae.brew.sh/formula/kubescape)           | :white_check_mark: |
+| [kube-linter](https://github.com/stackrox/kube-linter)                  | Linter for Kubernetes YAML        | [brew](https://formulae.brew.sh/formula/kube-linter)         | :white_check_mark: |
+| [fastfetch](https://formulae.brew.sh/formula/fastfetch)                 | System information tool           | [brew](https://github.com/fastfetch-cli/fastfetch)           | :white_check_mark: |
 | [neovim](https://neovim.io/)                                            | Vim-based modern editor           | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
 | [nvchad](https://neovim.io/)                                            | Neovim config framework           | [brew](https://formulae.brew.sh/formula/neovim)              | :white_check_mark: |
-| [tmux](https://neovim.io/)                                              | Terminal multiplexer              | [brew](https://formulae.brew.sh/formula/neovim)              | not working as expected |
+
 
 ## Getting started
 
