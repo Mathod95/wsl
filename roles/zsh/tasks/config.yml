@@ -16,17 +16,17 @@
   register: result
   changed_when: "'chsh' in result.stdout"
 
-#- name: Copy .zshrc
-#  ansible.builtin.copy:
-#    src: .zshrc
-#    dest: "{{ ansible_env.HOME }}/.zshrc"
-#    mode: '0644'
+- name: Copy .zshrc
+  ansible.builtin.copy:
+    src: .zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    mode: '0644'
 
-#- name: Copy .zshrc
-#  ansible.builtin.copy:
-#    src: .histfile
-#    dest: "{{ ansible_env.HOME }}/.histfile"
-#    mode: '0600'
+- name: Copy .histfile
+  ansible.builtin.copy:
+    src: .histfile
+    dest: "{{ ansible_env.HOME }}/.histfile"
+    mode: '0600'
 
 - name: Ensure ~/config/zsh-abbr directory exists with correct permissions
   ansible.builtin.file:
