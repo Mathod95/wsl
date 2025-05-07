@@ -35,7 +35,7 @@
     - kube-score
     - kubecolor
     - kubectl
-    - kubeescape
+    - kubescape
     - kubectx
     - krew
     - kustomize
