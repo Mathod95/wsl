@@ -74,6 +74,7 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light marlonrichert/zsh-autocomplete
 zinit light joshskidmore/zsh-fzf-history-search
+zinit light hlissner/zsh-autopair
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -100,3 +101,14 @@ my_abbreviation_reminder() {
 # Add the function to the preexec hook to run before each command
 autoload -U add-zsh-hook
 add-zsh-hook preexec my_abbreviation_reminder
+
+# Automatically run eza with icons and group directories
+if [[ -z "$DISABLE_AUTO_EZA" ]]; then
+  function auto_eza_on_cd() {
+    eza --icons --group-directories-first --git
+  }
+
+  # Override the default cd function to run auto_eza_on_cd
+  autoload -Uz add-zsh-hook
+  add-zsh-hook chpwd auto_eza_on_cd
+fi
