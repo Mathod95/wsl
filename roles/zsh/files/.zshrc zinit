@@ -9,6 +9,7 @@
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
 eval "$(zellij setup --generate-auto-start zsh)"
+source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
 # BIND
 bindkey "^[[3~" delete-char      # rebind del key from "^[[3~" to "delete-char"

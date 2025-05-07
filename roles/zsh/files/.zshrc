@@ -1,9 +1,17 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+
 # PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin"
 eval "$(zellij setup --generate-auto-start zsh)"
+source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
-# Update terminal/pane title like Fish
+# ZELLIJ
 function preexec() {
   print -Pn "\e]0;$1 %~\a"
 }
@@ -35,6 +43,9 @@ alias ls="eza -a --icons"
 alias szshrc="source ~/.zshrc"
 alias tree="eza -T"
 alias zshrc="vim ~/.zshrc"
+autoload -Uz compinit
+compinit
+source <(kubectl completion zsh)
 compdef kubecolor=kubectl
 
 # HISTORY
@@ -55,3 +66,37 @@ setopt HIST_VERIFY                         # expand line without executing it
 # ZSH OPTIONS
 setopt CORRECT # corriger les fautes de frappe sur les commandes
 setopt AUTO_CD # cd juste avec le nom du dossier
+
+# ZINIT
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light olets/zsh-abbr
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light marlonrichert/zsh-autocomplete
+zinit light joshskidmore/zsh-fzf-history-search
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# ABBR
+ABBR_EXPAND_PUSH_ABBREVIATION_TO_HISTORY=0
+ABBR_SET_EXPANSION_CURSOR=1
+ABBR_EXPANSION_CURSOR_MARKER=%
+ABBR_SET_LINE_CURSOR=1
+ABBR_GET_AVAILABLE_ABBREVIATION=1
+ABBR_LOG_AVAILABLE_ABBREVIATION=0
+
+my_abbreviation_reminder() {
+  if [[ -n "$ABBR_UNUSED_ABBREVIATION" ]]; then
+    # Set color codes
+    local red="\e[31m"
+    local reset="\e[0m"  # Reset color back to normal
+
+    # Display the custom reminder with proper colors
+    echo -e "Reminder: You could have used the abbreviation '${red}$ABBR_UNUSED_ABBREVIATION${reset}' for '${red}$ABBR_UNUSED_ABBREVIATION_EXPANSION${reset}'."
+  fi
+}
+
+# Add the function to the preexec hook to run before each command
+autoload -U add-zsh-hook
+add-zsh-hook preexec my_abbreviation_reminder
