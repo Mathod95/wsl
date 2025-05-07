@@ -48,6 +48,7 @@
     - vim
     - wget
     - zellij
+    - zinit
     - zsh
 
 - name: Get list of installed Homebrew packages with versions
