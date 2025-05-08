@@ -1,117 +1,230 @@
 {
-    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
-      "padding": {
-        "top": 2,
-        "left": 1,
-        "right": 2
-      }
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "modules": [
+    {
+      "type": "title",
+      "key": " ",
+      "keyColor": "red"
     },
-    "display": {
-      "separator": "  "
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
     },
-    "modules": [
-      // Title
-      {
-        "type": "title",
-        "format": "{#1}╭───────────── {#}{user-name-colored}"
-      },
-      // System Information
-      {
-        "type": "custom",
-        "format": "{#1}│ {#}System Information"
-      },
-      {
-        "type": "os",
-        "key": "{#separator}│  {#keys}󰍹 OS"
-      },
-      {
-        "type": "kernel",
-        "key": "{#separator}│  {#keys}󰒋 Kernel"
-      },
-      {
-        "type": "uptime",
-        "key": "{#separator}│  {#keys}󰅐 Uptime"
-      },
-      {
-        "type": "packages",
-        "key": "{#separator}│  {#keys}󰏖 Packages",
-        "format": "{all}"
-      },
-      {
-        "type": "custom",
-        "format": "{#1}│"
-      },
-      // Desktop Environment
-      {
-        "type": "custom",
-        "format": "{#1}│ {#}Desktop Environment"
-      },
-      {
-        "type": "de",
-        "key": "{#separator}│  {#keys}󰧨 DE"
-      },
-      {
-        "type": "wm",
-        "key": "{#separator}│  {#keys}󱂬 WM"
-      },
-      {
-        "type": "wmtheme",
-        "key": "{#separator}│  {#keys}󰉼 Theme"
-      },
-      {
-        "type": "display",
-        "key": "{#separator}│  {#keys}󰹑 Resolution"
-      },
-      {
-        "type": "shell",
-        "key": "{#separator}│  {#keys}󰞷 Shell"
-      },
-      {
-        "type": "terminalfont",
-        "key": "{#separator}│  {#keys}󰛖 Font"
-      },
-      {
-        "type": "custom",
-        "format": "{#1}│"
-      },
-      // Hardware Information
-      {
-        "type": "custom",
-        "format": "{#1}│ {#}Hardware Information"
-      },
-      {
-        "type": "cpu",
-        "key": "{#separator}│  {#keys}󰻠 CPU"
-      },
-      {
-        "type": "gpu",
-        "key": "{#separator}│  {#keys}󰢮 GPU"
-      },
-      {
-        "type": "memory",
-        "key": "{#separator}│  {#keys}󰍛 Memory"
-      },
-      {
-        "type": "disk",
-        "key": "{#separator}│  {#keys}󰋊 Disk (/)",
-        "folders": "/"
-      },
-      {
-        "type": "custom",
-        "format": "{#1}│"
-      },
-      // Colors
-      {
-        "type": "colors",
-        "key": "{#separator}│",
-        "symbol": "circle"
-      },
-      // Footer
-      {
-        "type": "custom",
-        "format": "{#1}╰───────────────────────────────────────────────────────────────╯"
-      }
-    ]
-  }
-  
+    {
+      "type": "host",
+      "key": "   Host",
+      "keyColor": "green"
+    },
+    {
+      "type": "cpu",
+      "key": "   CPU",
+      "showPeCoreCount": true,
+      "keyColor": "green"
+    },
+    {
+      "type": "memory",
+      "key": "   RAM",
+      "keyColor": "green"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+    },
+    {
+      "type": "os",
+      "key": "   OS",
+      "keyColor": "blue"
+    },
+    {
+      "type": "kernel",
+      "key": "   Kernel",
+      "keyColor": "blue"
+    },
+    {
+      "type": "packages",
+      "key": "  󰏖 Packages",
+      "keyColor": "blue"
+    },
+    {
+      "type": "terminal",
+      "key": "   Terminal",
+      "keyColor": "blue"
+    },
+    {
+      "type": "shell",
+      "key": "   Shell",
+      "keyColor": "blue"
+    },
+    {
+      "type": "locale",
+      "key": "   Locale",
+      "keyColor": "blue"
+    },
+    {
+      "type": "localip",
+      "key": "  󰩟 IP",
+      "keyColor": "blue"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌───────────────────────DevOps───────────────────────┐"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions | grep '^argocd ' | cut -d' ' -f2",
+      "key": "   ArgoCD",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions | grep '^argocd-autopilot ' | cut -d' ' -f2",
+      "key": "   ArgoCD Autopilot",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions awscli | sed -E 's/^awscli\\s+//'",
+      "key": "  󰸏 AWS CLI",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions cilium-cli | sed -E 's/^cilium-cli\\s+//'",
+      "key": "  󱃾 Cilium CLI",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions cloud-provider-kind | sed -E 's/^cloud-provider-kind\\s+//'",
+      "key": "  󱃾 Cloud Provider Kind",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions crossplane | sed -E 's/^crossplane\\s+//'",
+      "key": "  󱃾 Crossplane",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions docker | sed -E 's/^docker\\s+//'",
+      "key": "   Docker",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions git | sed -E 's/^git\\s+//'",
+      "key": "   Git",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions helm | sed -E 's/^helm\\s+//'",
+      "key": "   Helm",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions k9s | sed -E 's/^k9s\\s+//'",
+      "key": "  󱃾 K9s",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions kind | sed -E 's/^kind\\s+//'",
+      "key": "  󱃾 Kind",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions kube-linter | sed -E 's/^kube-linter\\s+//'",
+      "key": "  󱃾 Kube-Linter",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions kube-score | sed -E 's/^kube-score\\s+//'",
+      "key": "  󱃾 Kube-Score",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions kubecolor | sed -E 's/^kubecolor\\s+//'",
+      "key": "  󱃾 Kubecolor",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions kubectl | sed -E 's/^kubectl\\s+//'",
+      "key": "  󱃾 Kubectl",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions kubescape | sed -E 's/^kubescape\\s+//'",
+      "key": "  󱃾 Kubescape",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions kubectx | sed -E 's/^kubectx\\s+//'",
+      "key": "  󱃾 Kubectx",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions krew | sed -E 's/^krew\\s+//'",
+      "key": "  󱃾 Krew",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions kustomize | sed -E 's/^kustomize\\s+//'",
+      "key": "  󱃾 Kustomize",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions kyverno | sed -E 's/^kyverno\\s+//'",
+      "key": "  󱃾 Kyverno",
+      "keyColor": "red"
+    },
+    {
+      "type": "command",
+      "text": "brew list --versions velero | sed -E 's/^velero\\s+//'",
+      "key": "  󱃾 Velero",
+      "keyColor": "red"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌───────────────────────Uptime───────────────────────┐"
+    },
+    {
+      "type": "command",
+      "key": "  󰃫 Age",
+      "keyColor": "white",
+      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+    },
+    {
+      "type": "uptime",
+      "key": "  󱫐 Uptime",
+      "keyColor": "white"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+    }
+  ]
+}

@@ -16,18 +16,6 @@
   register: result
   changed_when: "'chsh' in result.stdout"
 
-#- name: Install Zinit with bash and curl
-#  ansible.builtin.shell: >
-#    bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-#  args:
-#    executable: /bin/bash
-#
-#- name: Copy .zshrc
-#  ansible.builtin.copy:
-#    src: .zshrc
-#    dest: "{{ ansible_env.HOME }}/.zshrc"
-#    mode: '0644'
-
 - name: Copy .zshrc
   ansible.builtin.copy:
     src: .zshrc
@@ -50,6 +38,18 @@
   ansible.builtin.copy:
     src: user-abbreviations
     dest: "{{ ansible_env.HOME }}/.config/zsh-abbr/user-abbreviations"
+    mode: '0600'
+
+- name: Ensure ~/config/fastfetch directory exists with correct permissions
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/fastfetch"
+    state: directory
+    mode: '0755'
+
+- name: Copy config.jsonc
+  ansible.builtin.copy:
+    src: config.jsonc
+    dest: "{{ ansible_env.HOME }}/.config/fastfetch/config.jsonc"
     mode: '0600'
 
 - name: Copy .p10k.zsh
