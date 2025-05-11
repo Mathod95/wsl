@@ -1,17 +1,17 @@
 ---
-#- name: Check if .ssh folder exists
-#  ansible.builtin.stat:
-#    path: "{{ ansible_env.HOME }}/.ssh"
-#  register: ssh_folder_stat
-#  become_user: "{{ ansible_env.USER }}"
-#
-#- name: Create .ssh folder if it doesn't exist
-#  ansible.builtin.file:
-#    path: "{{ ansible_env.HOME }}/.ssh"
-#    state: directory
-#    mode: "0700"
-#  when: not ssh_folder_stat.stat.exists
-#  become_user: "{{ ansible_env.USER }}"
+- name: Check if .ssh folder exists
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.ssh"
+  register: ssh_folder_stat
+  become_user: "{{ ansible_env.USER }}"
+
+- name: Create .ssh folder if it doesn't exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+    mode: "0700"
+  when: not ssh_folder_stat.stat.exists
+  become_user: "{{ ansible_env.USER }}"
 
 #- name: Check if ~/.ssh folder exists
 #  ansible.builtin.stat:

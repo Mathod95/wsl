@@ -5,6 +5,9 @@ abbr "apbmv"="ansible-playbook main.yml --tags=versions"
 # docker
 abbr "dk"="docker"
 
+# fastfetch
+abbr "ff"="fastfetch"
+
 # git
 abbr "gl"="git pull"
 
@@ -33,6 +36,7 @@ abbr "zshrc"="vim ~/.zshrc"
 # kind
 abbr "kicc"="kind create cluster"
 abbr "kiccn"="kind create cluster --name %"
+abbr "kiccc"="kind create cluster --config %"
 abbr "kigc"="kind get clusters"
 abbr "kign"="kind get nodes"
 abbr "kidc"="kind delete cluster"

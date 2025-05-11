@@ -1377,7 +1377,7 @@
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
   # Show kubecontext only when the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show kubecontext.
-  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent|kubecolor|cmctl|sparkctl'
+  #typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent|kubecolor|cmctl|sparkctl'
 
   # Kubernetes context classes for the purpose of using different colors, icons and expansions with
   # different contexts.
@@ -1407,11 +1407,18 @@
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
-      # '*prod*'  PROD    # These values are examples that are unlikely
-      # '*test*'  TEST    # to match your needs. Customize them as needed.
+      '*production*'  PRODUCTION
+      '*staging*'     STAGING
+      '*management*'  MANAGEMENT
       '*'       DEFAULT)
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=7
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_BACKGROUND=5
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PRODUCTION_FOREGROUND=0
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PRODUCTION_BACKGROUND=1
+  typeset -g POWERLEVEL9K_KUBECONTEXT_STAGING_FOREGROUND=0
+  typeset -g POWERLEVEL9K_KUBECONTEXT_STAGING_BACKGROUND=3
+  typeset -g POWERLEVEL9K_KUBECONTEXT_MANAGEMENT_FOREGROUND=7
+  typeset -g POWERLEVEL9K_KUBECONTEXT_MANAGEMENT_BACKGROUND=4
   # typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   # Use POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION to specify the content displayed by kubecontext
