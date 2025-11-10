@@ -1,0 +1,13 @@
+Host seedboxMathod
+    HostName mathod.fr
+    User mathod
+    Port 22
+    IdentityFile ~/.ssh/seedbox
+    ForwardAgent yes
+
+Host seedboxElio
+    HostName eliostream.com
+    User elio
+    Port 22
+    IdentityFile ~/.ssh/seedbox
+    ForwardAgent yes
