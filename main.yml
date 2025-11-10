@@ -9,6 +9,6 @@
     - role: ssh
     - role: github
     - role: brewPackages
-    #- role: docker
-    #- role: vscode
+    - role: docker
+    - role: vscode
     #- role: zsh
