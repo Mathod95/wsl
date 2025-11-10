@@ -6,9 +6,9 @@
   become: false
 
   roles:
-    - role: ssh
-    - role: docker
+    #- role: ssh
+    #- role: docker
     - role: brewPackages
-    - role: github
-    - role: vscode
-    - role: zsh
+    #- role: github
+    #- role: vscode
+    #- role: zsh
