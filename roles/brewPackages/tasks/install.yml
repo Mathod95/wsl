@@ -5,7 +5,7 @@
 #  register: brew_analytics_result
 #  changed_when: false
 
-- name: Install {{ item }} via Homebrew
+- name: Install item via Homebrew
   community.general.homebrew:
     name: "{{ item }}"
     state: present
