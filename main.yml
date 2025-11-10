@@ -8,7 +8,7 @@
   roles:
     - role: ssh
     - role: github
+    - role: brewPackages
     #- role: docker
-    #- role: brewPackages
     #- role: vscode
     #- role: zsh

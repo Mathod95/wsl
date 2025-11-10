@@ -13,38 +13,38 @@
     - ansible
     - argocd
     - argocd-autopilot
-    - asciinema
-    - awscli
+    #- asciinema
+    #- awscli
     - bat
     - btop
-    - cilium-cli
-    - cloud-provider-kind
-    - crossplane
+    #- cilium-cli
+    #- cloud-provider-kind
+    #- crossplane
     - curl
-    - docker
+    #- docker
     - eza
     - fastfetch
     - fd
     - fzf
     - git
     - helm
-    - k9s
-    - keychain
+    #- k9s
+    #- keychain
     - kind
-    - kube-linter
-    - kube-score
+    #- kube-linter
+    #- kube-score
     - kubecolor
     - kubectl
-    - kubescape
+    #- kubescape
     - kubectx
-    - krew
+    #- krew
     - kustomize
     - kyverno
-    - neovim
-    - opentofu
+    #- neovim
+    #- opentofu
     - ripgrep
     - systemd
-    - velero
+    #- velero
     - vim
     - wget
     - zellij
