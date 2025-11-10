@@ -1,5 +1,5 @@
 dockerhub:debian:trixie-slim
-
+```bash
 sudo apt-get update 
 sudo apt-get install -y locales 
 sudo rm -rf /var/lib/apt/lists/*
@@ -16,7 +16,7 @@ brew install ansible
 git clone https://github.com/Mathod95/wsl /home/mathod/github/wsl
 cd github/wsl/trixie
 ansible-playbook main.yml --ask-vault-pass
-
+```
 
 # TODO
 script pour update / upgrade ou script check version
