@@ -93,3 +93,12 @@
   when:
     - ssh_folder_stat.stat.exists
     - not seedbox_pub_stat.stat.exists
+
+- name: Copy config to .ssh folder
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/roles/ssh/files/config"
+    dest: "{{ ansible_env.HOME }}/.ssh/config"
+  become_user: "{{ ansible_env.USER }}"
+  when:
+    - ssh_folder_stat.stat.exists
+    - not config_stat.stat.exists
