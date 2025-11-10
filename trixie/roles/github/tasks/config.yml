@@ -27,8 +27,6 @@
     update: yes
     version: HEAD
   loop:
-    - https://github.com/Mathod95/apps
+    - https://github.com/Mathod95/mathod95
     - https://github.com/Mathod95/wsl
-    - https://github.com/Mathod95/argocd-autopilot
-    - https://github.com/Mathod95/courses
   become_user: mathod
