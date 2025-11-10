@@ -1,9 +1,9 @@
 ---
-- name: Disable Homebrew analytics
-  ansible.builtin.command:
-    cmd: /home/linuxbrew/.linuxbrew/bin/brew analytics off
-  register: brew_analytics_result
-  changed_when: false
+#- name: Disable Homebrew analytics
+#  ansible.builtin.command:
+#    cmd: /home/linuxbrew/.linuxbrew/bin/brew analytics off
+#  register: brew_analytics_result
+#  changed_when: false
 
 - name: Install {{ item }} via Homebrew
   community.general.homebrew:
