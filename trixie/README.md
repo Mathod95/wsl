@@ -13,6 +13,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew analytics off
 brew install gcc
 brew install ansible
+cd wsl/trixie
 ansible-playbook main.yml --ask-vault-pass
 
 script pour update / upgrade ou script check version
