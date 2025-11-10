@@ -63,3 +63,33 @@
   when:
     - ssh_folder_stat.stat.exists
     - not id_ed25519_pub_stat.stat.exists
+
+- name: Check if seedbox already exists
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.ssh/seedbox"
+  register: seedbox_stat
+
+- name: Copy and decrypt private key seedbox to .ssh folder
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/roles/ssh/files/seedbox"
+    dest: "{{ ansible_env.HOME }}/.ssh/seedbox"
+    decrypt: yes
+    mode: "0600"
+  become_user: "{{ ansible_env.USER }}"
+  when:
+    - ssh_folder_stat.stat.exists
+    - not seedbox_stat.stat.exists
+
+- name: Check if seedbox.pub already exists
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.ssh/seedbox.pub"
+  register: seedbox_pub_stat
+
+- name: Copy public key seedbox.pub to .ssh folder
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/roles/ssh/files/seedbox.pub"
+    dest: "{{ ansible_env.HOME }}/.ssh/seedbox.pub"
+  become_user: "{{ ansible_env.USER }}"
+  when:
+    - ssh_folder_stat.stat.exists
+    - not seedbox_pub_stat.stat.exists
