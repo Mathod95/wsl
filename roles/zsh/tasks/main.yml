@@ -1,4 +1,4 @@
 ---
 # tasks file for zsh
 - import_tasks: config.yml
-- import_tasks: nvchad.yml
+#- import_tasks: nvchad.yml
