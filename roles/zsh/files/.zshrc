@@ -21,6 +21,8 @@ function precmd() {
 }
 
 # BIND
+# Provide fallback for Shift+Tab if missing
+[[ -z "${terminfo[kcbt]}" ]] && terminfo[kcbt]='^[[Z'
 bindkey "^[[3~" delete-char      # rebind del key from "^[[3~" to "delete-char"
 bindkey "^[[H" beginning-of-line # Home key: move to beginning of line
 bindkey "^[[F" end-of-line       # End key: move to end of line
