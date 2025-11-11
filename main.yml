@@ -11,4 +11,4 @@
     - role: brewPackages
     - role: docker
     - role: vscode
-    #- role: zsh
+    - role: zsh
